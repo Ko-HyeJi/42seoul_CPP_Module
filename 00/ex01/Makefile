@@ -6,7 +6,7 @@
 #    By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 20:52:44 by hyko              #+#    #+#              #
-#    Updated: 2022/11/10 20:38:10 by hyko             ###   ########.fr        #
+#    Updated: 2022/11/10 20:46:00 by hyko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
-SRCS = main.cpp\
-	PhoneBook.cpp\
-	Contact.cpp
+SRCS = main.cpp PhoneBook.cpp Contact.cpp
 	
 OBJS = $(SRCS:.cpp=.o)
 
