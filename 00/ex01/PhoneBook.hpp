@@ -6,10 +6,15 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 18:25:26 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/09 22:51:09 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/10 20:34:41 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
+#include <iostream>
+#include <string>
 #include "Contact.hpp"
 
 class PhoneBook
@@ -17,8 +22,11 @@ class PhoneBook
 private:
 	Contact	contact[8];
 	int	idx;
+	void	print_phonebook(void);
+
 public:
-    // void	add_new_contact(void)
-	// search_contact()
-	
+	void	add_contact(void);
+	void	search_contact(void);	
 };
+
+#endif

@@ -6,13 +6,11 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:35:54 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/09 22:46:40 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/10 20:35:39 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
 int	main(void)
 {
@@ -30,15 +28,15 @@ int	main(void)
 			exit(0);
 		}
 		else if (cmd.compare("ADD") == 0 || cmd.compare("add") == 0){
-			// phonebook.add_new_contact();
+			phonebook.add_contact();
 			std::cout << "\n";
 		}
 		else if (cmd.compare("SEARCH") == 0 || cmd.compare("search") == 0){
-			// phonebook.search_contact();
+			phonebook.search_contact();
 			std::cout << "\n";
 		}
 		else
-			std::cout << "\n[WRONG REQUEST]\n";
+			std::cout << "\n[WRONG REQUEST]\n\n";
 	}
 	return (0);
 }

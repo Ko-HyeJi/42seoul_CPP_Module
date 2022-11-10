@@ -6,7 +6,7 @@
 #    By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 20:52:44 by hyko              #+#    #+#              #
-#    Updated: 2022/11/09 21:38:54 by hyko             ###   ########.fr        #
+#    Updated: 2022/11/10 20:38:10 by hyko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,4 @@ fclean : clean
 
 re : fclean all
 
-# test: $(NAME)
-
-.PHONY : all clean re test
+.PHONY : all clean re
