@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+         #
+#    By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 16:40:30 by hyko              #+#    #+#              #
-#    Updated: 2022/11/09 20:44:52 by hyko             ###   ########.fr        #
+#    Updated: 2022/11/11 20:45:57 by hyko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,4 +37,4 @@ test: $(NAME)
 	./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
 	./megaphone
 
-.PHONY : all clean re test
+.PHONY : all clean fclean re test
