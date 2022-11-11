@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:25:50 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/10 20:34:48 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/11 20:12:29 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ void Contact::set_darkest_secret(std::string str)
 
 void Contact::print_contact(void)
 {
-	std::cout << "\n";
-	std::cout << "First Name : " << first_name << "\n";
-	std::cout << "Last Name : " << last_name << "\n";
-	std::cout << "Nickname : " << nickname << "\n";
-	std::cout << "Phone Number : " << phone_number << "\n";
-	std::cout << "Darkest Secret : " << darkest_secret << "\n";
+	std::cout << std::endl;
+	std::cout << "First Name : " << first_name << std::endl;
+	std::cout << "Last Name : " << last_name << std::endl;
+	std::cout << "Nickname : " << nickname << std::endl;
+	std::cout << "Phone Number : " << phone_number << std::endl;
+	std::cout << "Darkest Secret : " << darkest_secret << std::endl;
 }
