@@ -6,15 +6,21 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 02:10:43 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/12 02:14:02 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/12 03:06:40 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon()
+// Weapon::Weapon(std::string type)
+// {
+//     _type = type;
+// }
+
+Weapon::Weapon(std::string type): _type(type)
 {
 }
+
 
 Weapon::~Weapon()
 {

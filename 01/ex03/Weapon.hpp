@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 02:10:12 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/12 02:10:34 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/12 02:54:18 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Weapon
 private:
     std::string _type;
 public:
-    Weapon();
+    Weapon(std::string type);
     ~Weapon();
     const std::string& getType(void);
     void setType(std::string type);
