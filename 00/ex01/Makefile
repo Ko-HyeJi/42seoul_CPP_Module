@@ -6,7 +6,7 @@
 #    By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 20:52:44 by hyko              #+#    #+#              #
-#    Updated: 2022/11/11 16:28:41 by hyko             ###   ########.fr        #
+#    Updated: 2022/11/11 20:46:25 by hyko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,4 +33,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean re
+.PHONY : all clean fclean re
