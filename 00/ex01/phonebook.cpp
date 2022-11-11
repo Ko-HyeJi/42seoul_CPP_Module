@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 18:22:20 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/11 16:30:42 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/11 17:53:25 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ void	PhoneBook::search_contact(void)
 	std::cout << "\nPlease enter the index number you want to display\n" << ">> ";
 	while (1)
 	{
+		std::cin.clear();
+		clearerr(stdin);
 		std::cin >> num;
 		num--;
 		if (num < 0 || num >= idx % 8)

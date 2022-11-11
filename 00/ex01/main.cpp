@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:35:54 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/11 17:27:42 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/11 17:52:36 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(void)
 		std::cout << "Please enter one of 'ADD', 'SEARCH', 'EXIT'\n";
 		std::cout << ">> ";
 		
+		std::cin.clear();
+		clearerr(stdin);
 		std::getline(std::cin, cmd);
 		if (cmd.compare("EXIT") == 0 || cmd.compare("exit") == 0){
 			std::cout << "==================================================\n";
