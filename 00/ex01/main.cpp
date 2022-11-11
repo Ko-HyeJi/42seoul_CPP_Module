@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:35:54 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/10 20:35:39 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/11 17:27:42 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 		std::cout << "Please enter one of 'ADD', 'SEARCH', 'EXIT'\n";
 		std::cout << ">> ";
 		
-		std::cin >> cmd;
+		std::getline(std::cin, cmd);
 		if (cmd.compare("EXIT") == 0 || cmd.compare("exit") == 0){
 			std::cout << "==================================================\n";
 			exit(0);

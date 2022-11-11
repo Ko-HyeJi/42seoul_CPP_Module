@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 18:22:20 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/10 20:33:37 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/11 16:30:42 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-static int	ft_strlen(std::string str)
-{
-	int i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 static void	print_one_line(std::string str)
 {
-	int	length = ft_strlen(str);
+	int	length = str.length();
 	if (length < 10){
 		for (int i = 10 - length; i; i--)
 			std::cout << " ";
@@ -66,23 +58,23 @@ void	PhoneBook::add_contact(void)
 	idx %= 8;
 
 	std::cout << "\nPlease enter first name\n" << ">> ";
-	std::cin >> str;
+	std::getline(std::cin, str);
 	contact[idx].set_first_name(str);
 	
 	std::cout << "\nPlease enter last name\n" << ">> ";
-	std::cin >> str;
+	std::getline(std::cin, str);
 	contact[idx].set_last_name(str);
 	
 	std::cout << "\nPlease enter nickname\n" << ">> ";
-	std::cin >> str;
+	std::getline(std::cin, str);
 	contact[idx].set_nickname(str);
 	
 	std::cout << "\nPlease enter phone number\n" << ">> ";
-	std::cin >> str;
+	std::getline(std::cin, str);
 	contact[idx].set_phone_number(str);
 	
 	std::cout << "\nPlease enter darkest secret\n" << ">> ";
-	std::cin >> str;
+	std::getline(std::cin, str);
 	contact[idx].set_darkest_secret(str);
 
 	std::cout << "\n[Successfully saved a new contact]\n";
