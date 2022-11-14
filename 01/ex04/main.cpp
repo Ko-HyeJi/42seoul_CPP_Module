@@ -41,22 +41,21 @@ int replace_string(std::string str, char **argv)
 
 int	main(int argc, char **argv)
 {
-	std::ifstream	inFile;
-	std::string 	str;
-	std::string		filename = argv[1];
-	char			c;	
-
 	if (argc != 4)
 	{
 		std::cout << "usage: ./replace <filename> old_word new_word" << std::endl;
 		return (1);
 	}
+	std::ifstream	inFile;
+	std::string		filename = argv[1];
 	inFile.open(filename);
 	if (!inFile.is_open())
 	{
 		std::cout << "Error: <" << filename << "> " << "no such file or directory" << std::endl;
 		return (1);	
 	}
+	std::string 	str;
+	char			c;	
 	while (inFile >> std::noskipws >> c)
 		str += c;
 	inFile.close();
