@@ -12,15 +12,10 @@
 
 #include "Weapon.hpp"
 
-// Weapon::Weapon(std::string type)
-// {
-//     _type = type;
-// }
-
-Weapon::Weapon(std::string type): _type(type)
+Weapon::Weapon(std::string type)
 {
+    _type = type;
 }
-
 
 Weapon::~Weapon()
 {
@@ -28,7 +23,7 @@ Weapon::~Weapon()
 
 const std::string& Weapon::getType(void)
 {
-    return (_type); // 참조자 반환 형식?
+    return (_type);
 }
 
 void Weapon::setType(std::string type)

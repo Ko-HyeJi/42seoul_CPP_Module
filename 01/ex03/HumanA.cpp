@@ -19,8 +19,10 @@
 //     std::cout << "created HumanA : \"" << _name << "\" with \"" << _weapon.getType() << "\"" << std::endl;
 // }
 
-HumanA::HumanA(std::string name, Weapon &weapon): _name(name), _weapon(weapon)
+HumanA::HumanA(std::string name, Weapon& weapon): _name(name), _weapon(weapon)
 {
+    _name = name;
+    _weapon = weapon;
 	std::cout << "HumanA " << name << " created with ";
 	std::cout << weapon.getType() << std::endl;
 }

@@ -20,19 +20,12 @@
        
 // }
 
-HumanB::HumanB(std::string name): _weapon(NULL)
+HumanB::HumanB(std::string name)
 {
-	this->_name = name;
+	_name = name;
+	_weapon = NULL;
 	std::cout << "HumanB " << name << " created with no weapon" << std::endl;
 }
-
-
-// HumanB::HumanB(std::string name, Weapon weapon)
-// {
-//     _name = name;
-//     _weapon = weapon;
-//     std::cout << "created HumanB : \"" << _name << "\" with \"" << _weapon.getType() << "\"" << std::endl;
-// }
 
 HumanB::~HumanB()
 {
@@ -54,7 +47,7 @@ void HumanB::attack(void)
 //     _weapon = weapon;
 // }
 
-void	HumanB::setWeapon(Weapon &weapon)
+void	HumanB::setWeapon(Weapon& weapon)
 {
-	this->_weapon = &weapon;
+	_weapon = &weapon;
 }

@@ -15,15 +15,19 @@
 
 #include "Weapon.hpp"
 
+//생성자에 무기 포함
+//항상 무장
+//A의 weapon은 참조자?
+
 class HumanA
 {
 private:
     std::string _name;
     // Weapon _weapon;
-    Weapon &_weapon;
+    Weapon& _weapon; //???
     
 public:
-    HumanA(std::string name, Weapon &weapon);
+    HumanA(std::string name, Weapon& weapon);
     ~HumanA();
     void attack(void);
     void setWeapon(Weapon weapon);
