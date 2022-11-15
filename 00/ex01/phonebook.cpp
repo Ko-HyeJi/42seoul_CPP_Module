@@ -55,7 +55,6 @@ void	PhoneBook::_print_phonebook(void)
 void	PhoneBook::add_contact(void)
 {
 	std::string	str;
-	// _idx %= 8;
 	int idx = _idx % 8;
 	
 	while (1)

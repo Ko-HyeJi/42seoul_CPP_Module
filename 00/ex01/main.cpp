@@ -17,7 +17,7 @@ int	main(void)
 	std::string cmd;
 	PhoneBook	phonebook;
 	
-	while (1){
+	while (1) {
 		std::cout << "=================== Phone Book ===================" << std::endl;
 		std::cout << "Please enter one of 'ADD', 'SEARCH', 'EXIT'" << std::endl;
 		std::cout << ">> ";
