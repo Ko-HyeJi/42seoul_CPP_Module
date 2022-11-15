@@ -14,9 +14,9 @@
 
 int	main(void)
 {
-	Zombie	*z = newZombie("yeju");
+	Zombie	*z = newZombie("heap");
 	z->announce();
 	delete z;
     
-	randomChump("yotak");
+	randomChump("stack");
 }
