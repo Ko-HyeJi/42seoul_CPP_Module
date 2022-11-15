@@ -20,9 +20,9 @@
 class PhoneBook
 {
 private:
-	Contact	contact[8];
-	int	idx;
-	void	print_phonebook(void);
+	Contact	_contact[8];
+	int		_idx;
+	void	_print_phonebook(void);
 
 public:
 	void	add_contact(void);
