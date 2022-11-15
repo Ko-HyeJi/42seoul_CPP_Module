@@ -59,6 +59,8 @@ void	PhoneBook::add_contact(void)
 	
 	while (1)
 	{
+		std::cin.clear();
+		clearerr(stdin);
 		std::cout << "\nPlease enter first name" << std::endl << ">> ";
 		std::getline(std::cin, str);
 		if (str[0] && str[0] != ' ')
@@ -78,6 +80,8 @@ void	PhoneBook::add_contact(void)
 	
 	while (1)
 	{
+		std::cin.clear();
+		clearerr(stdin);
 		std::cout << "\nPlease enter phone number" << std::endl << ">> ";
 		std::getline(std::cin, str);
 		if (str[0] && str[0] != ' ')
