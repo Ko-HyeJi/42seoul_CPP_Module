@@ -13,13 +13,12 @@
 #include <iostream>
 #include <string>
 
-std::string getUpperString(std::string str)
+void getUpperString(std::string& str)
 {
 	for (int i = 0; str[i]; i++){
 		if (std::islower(str[i]))
 			str[i] = std::toupper(str[i]);
 	}
-	return (str);
 }
 
 int main(int argc, char **argv)
@@ -31,7 +30,8 @@ int main(int argc, char **argv)
 	std::string str;
 	for (int i = 1; i < argc; i++){
 		str = argv[i];
-		std::cout << getUpperString(str);
+		getUpperString(str);
+		std::cout << str;
 	}
 	std::cout << std::endl;
 	return (0);
