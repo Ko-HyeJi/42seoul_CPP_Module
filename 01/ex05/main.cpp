@@ -15,12 +15,11 @@
 int	main(void)
 {
 	Harl	harl;
-	void	(Harl::*ptrComplain)(std::string level) = &Harl::complain;
-
-	(harl.*ptrComplain)("DEBUG");
-	(harl.*ptrComplain)("INFO");
-	(harl.*ptrComplain)("WARNING");
-	(harl.*ptrComplain)("ERROR");
+	
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
 
 	return (0);
 }
