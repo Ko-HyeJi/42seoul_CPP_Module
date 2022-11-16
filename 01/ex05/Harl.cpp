@@ -39,23 +39,14 @@ void Harl::error(void)
 	"This is unacceptable! I want to speak to the manager now.\n" << std::endl;
 }
 
-// void Harl::complain(std::string level)
-// {
-	
-// }
-
-// 함수 포인터 공부!!!!!
-void	Harl::complain(std::string level)
+void Harl::complain(std::string level)
 {
-	void	(Harl::*ptr_complain[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	std::string	levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
-	for (int i = 0; i < 4; i++)
-	{
-		if (levels[i] == level)
-		{
-			(this->*ptr_complain[i])();
-			break ;
-		}
-	}
+	if (level.compare("DEBUG") == 0)
+		debug();
+	else if (level.compare("INFO") == 0)
+		info();
+	else if (level.compare("WARNING") == 0)
+		warning();
+	else if (level.compare("ERROR") == 0)
+		error();
 }
