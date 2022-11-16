@@ -15,11 +15,10 @@
 int main(int argc, char **argv)
 {
 	Harl	harl;
-	void	(Harl::*ptrComplain)(std::string level) = &Harl::complain;
 
 	if (argc == 2) {
 		std::string level = argv[1];
-		(harl.*ptrComplain)(level);
+		harl.complain(level);
 	}
 
 	return (0);
