@@ -46,6 +46,7 @@ int	main(int argc, char **argv)
 		std::cout << "usage: ./replace <filename> old_word new_word" << std::endl;
 		return (1);
 	}
+
 	std::ifstream	inFile;
 	std::string		filename = argv[1];
 	inFile.open(filename);
@@ -54,6 +55,7 @@ int	main(int argc, char **argv)
 		std::cout << "Error: <" << filename << "> " << "no such file or directory" << std::endl;
 		return (1);	
 	}
+	
 	std::string 	str;
 	char			c;	
 	while (inFile >> std::noskipws >> c)
