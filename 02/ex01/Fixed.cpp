@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 00:50:13 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/19 01:32:31 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/20 04:16:54 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed(const int value): _value(value << _bits) //정수 -> 고정소수�
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float value): _value(roundf(value * (1 << _bits))) //실수 -> 고정소수점
+Fixed::Fixed(const float value): _value(roundf(value * (1 << _bits))) //실수(부동소수점) -> 고정소수점
 {
 	std::cout << "Float constructor called" << std::endl;
 }
@@ -32,16 +32,16 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& copy)
+Fixed::Fixed(const Fixed& obj)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
+	*this = obj;
 }
 
-Fixed& Fixed::operator=(const Fixed& copy)
+Fixed& Fixed::operator=(const Fixed& obj)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_value = copy.getRawBits();
+	this->_value = obj.getRawBits();
 	return (*this);
 }
 
@@ -57,13 +57,13 @@ void Fixed::setRawBits(int const raw)
 	this->_value = raw;
 }
 
-//고정 소수점 값을 부동 소수점 값으로 변환
+//고정소수점 값을 부동소수점 값으로 변환
 float Fixed::toFloat(void) const
 {
 	return (float)_value / (1 << _bits);
 }
 
-//고정 소수점 값을 정수 값으로 변환
+//고정소수점 값을 정수 값으로 변환
 float Fixed::toInt(void) const
 {
 	return(_value >> _bits);

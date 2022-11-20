@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 00:50:06 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/19 01:22:10 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/20 04:17:11 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ public:
 	~Fixed(void);
 
 	//복사 생성자
-	Fixed(const Fixed& copy);
+	Fixed(const Fixed& obj);
 	//복사 대입 연산자 오버로딩
-	Fixed& operator=(const Fixed& copy);
+	Fixed& operator=(const Fixed& obj);
 
 	//고정 소수점 값 원본을 반환
 	int getRawBits(void) const;
