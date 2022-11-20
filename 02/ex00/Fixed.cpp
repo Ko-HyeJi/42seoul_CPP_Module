@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:43:57 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/19 00:46:06 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/20 04:16:03 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ Fixed::~Fixed(void)
 }
 
 //복사 생성자
-Fixed::Fixed(const Fixed& copy)
+Fixed::Fixed(const Fixed& obj)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
+	*this = obj;
 }
 
 //복사 대입 연산자 오버로딩
-Fixed& Fixed::operator=(const Fixed& copy)
+Fixed& Fixed::operator=(const Fixed& obj)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_value = copy.getRawBits();
+	this->_value = obj.getRawBits();
 	return (*this);
 }
 
