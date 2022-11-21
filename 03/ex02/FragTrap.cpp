@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:48:52 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/21 18:01:03 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/22 04:24:54 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,21 @@ FragTrap& FragTrap::operator=(FragTrap& obj)
 	_EnergyPoints = obj.get_energy_points();
 	_AttackDamage = obj.get_attack_damage();
 	return (*this);
+}
+
+void FragTrap::attack(const std::string& target)
+{
+	if (_HitPoints <= 0) {
+		std::cout << "FragTrap " << _Name << " already dead" << std::endl;
+	}
+	else if (_EnergyPoints <= 0) {
+		std::cout << "FragTrap " << _Name << " attack failed: out of energy points" << std::endl;
+	}
+	else {
+		_EnergyPoints--;	
+		std::cout << "FragTrap " << _Name << " attacks " << target << \
+		", causing " << _AttackDamage << " points of damage!" << std::endl;
+	}
 }
 
 void FragTrap::highFivesGuys(void)

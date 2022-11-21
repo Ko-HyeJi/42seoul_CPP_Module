@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:49:13 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/21 17:50:22 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/22 04:23:04 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	ScavTrap& operator=(ScavTrap& obj);
 
 	/* member functions */	
-	virtual void attack(const std::string& target);
+	void attack(const std::string& target);
 	void guardGate();
 };
 
