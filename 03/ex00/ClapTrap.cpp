@@ -6,15 +6,15 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 00:15:19 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/21 16:37:13 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/21 17:40:13 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : _Name("(null)"), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
+ClapTrap::ClapTrap(void) : _Name("default"), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
 {
-	std::cout << "ClapTrap " << _Name << " created" << std::endl;	
+	std::cout << "ClapTrap " << _Name << " created" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string Name) : _Name(Name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
@@ -83,57 +83,56 @@ void	ClapTrap::set_attack_damage(unsigned int damage)
 	_AttackDamage = damage;
 }
 
-
-
 void ClapTrap::attack(const std::string& target)
 {
-	if ((_EnergyPoints > 0 && _HitPoints > 0) && _EnergyPoints--) {	
-		std::cout << "CalpTrap " << _Name << " attacks " << target << \
-		", causing " << _AttackDamage << " points of damage!" << std::endl;
-	}
-	else if (_HitPoints <= 0) {
+	if (_HitPoints <= 0) {
 		std::cout << "CalpTrap " << _Name << " already dead" << std::endl;
 	}
-	else {
+	else if (_EnergyPoints <= 0) {
 		std::cout << "ClapTrap " << _Name << " attack failed: out of energy points" << std::endl;
+	}
+	else {
+		_EnergyPoints--;	
+		std::cout << "CalpTrap " << _Name << " attacks " << target << \
+		", causing " << _AttackDamage << " points of damage!" << std::endl;
 	}
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (_HitPoints >= amount) {
+	if (_HitPoints <= 0) {
+		std::cout << "CalpTrap " << _Name << " already dead" << std::endl;
+	}	
+	else if (_HitPoints >= amount) {
 		std::cout << "CalpTrap " << _Name << " took " \
 		<< amount << " points of damage!" << std::endl;
 		_HitPoints -= amount;
 	}
-	else if (_HitPoints > 0) {
+	else {
 		std::cout << "CalpTrap " << _Name << " took " \
 		<< _HitPoints << " points of damage!" << std::endl;
 		_HitPoints = 0;
-	}
-	else {
-		std::cout << "CalpTrap " << _Name << " already dead" << std::endl;
 	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_EnergyPoints >= amount && _HitPoints > 0) {
+	if (_HitPoints <= 0) {
+		std::cout << "CalpTrap " << _Name << " already dead" << std::endl;
+	}
+	else if (_EnergyPoints <= 0) {
+		std::cout << "ClapTrap " << _Name << " repair failed: out of energy points" << std::endl;
+	}
+	else if (_EnergyPoints >= amount) {
 		std::cout << "ClapTrap " << _Name << " increased " \
 		<< amount << " point of hit points!" << std::endl;
 		_HitPoints += amount; 
 		_EnergyPoints -= amount;
 	}
-	else if (_EnergyPoints > 0 && _HitPoints > 0) {
+	else {
 		std::cout << "ClapTrap " << _Name << " increased " \
 		<< _EnergyPoints << " point of hit points!" << std::endl;
 		_HitPoints += _EnergyPoints;
 		_EnergyPoints = 0;
-	}
-	else if (_HitPoints <= 0) {
-		std::cout << "CalpTrap " << _Name << " already dead" << std::endl;
-	}
-	else {
-		std::cout << "ClapTrap " << _Name << " repair failed: out of energy points" << std::endl;
 	}
 }
