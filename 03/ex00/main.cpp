@@ -6,16 +6,15 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 00:52:45 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/21 16:44:36 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/21 16:48:39 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 int main(void)
-{
-	
-	std::cout << "==================================================\n" << std::endl;
+{	
+	std::cout << "==================================================\n" << std::endl;	
 	
 	{
 		ClapTrap	a("Alpha");
@@ -36,9 +35,9 @@ int main(void)
 		a.attack("target");
 		std::cout << std::endl;
 	}
-
+	
 	std::cout << "\n--------------------------------------------------\n" << std::endl;
-
+	
 	{
 		ClapTrap	b("Bravo");
 		std::cout << std::endl;
@@ -76,9 +75,8 @@ int main(void)
 		c.takeDamage(3);
 		std::cout << std::endl;
 	}
-	
-	std::cout << "\n==================================================" << std::endl;
 
+	std::cout << "\n==================================================" << std::endl;
 
 	return (0);
 }
