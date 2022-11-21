@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:54:05 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/21 17:15:56 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/22 04:15:38 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ public:
 	void			set_attack_damage(unsigned int damage);
 
 	/* member functions */	
-	void attack(const std::string& target);
+	virtual void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 };
