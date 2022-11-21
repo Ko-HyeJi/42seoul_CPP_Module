@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 00:15:19 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/21 16:37:13 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/21 16:49:27 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ void	ClapTrap::set_attack_damage(unsigned int damage)
 {
 	_AttackDamage = damage;
 }
-
-
 
 void ClapTrap::attack(const std::string& target)
 {
