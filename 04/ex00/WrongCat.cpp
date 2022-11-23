@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 04:36:28 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 04:36:39 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/22 11:40:02 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat(void)
 {
-	_type = "WrongCat";
+	this->type = "WrongCat";
 	std::cout << "WrongCat created" << std::endl;
 }
 
@@ -25,5 +25,5 @@ WrongCat::~WrongCat(void)
 
 void	WrongCat::makeSound(void) const
 {
-	std::cout << _type << ": ..." << std::endl;
+	std::cout << this->type << ": ..." << std::endl;
 }

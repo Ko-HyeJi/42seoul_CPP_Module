@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:38:02 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 04:52:19 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/22 11:40:13 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Animal
 {
 protected:
-	std::string _type;
+	std::string type;
 public:
 	Animal(void);
 	Animal(const Animal& obj);

@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:38:04 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 04:10:42 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/22 11:40:02 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::Cat(void)
 {
-	_type = "Cat";
+	this->type = "Cat";
 	std::cout << "Cat created" << std::endl;
 }
 
@@ -25,5 +25,5 @@ Cat::~Cat(void)
 
 void	Cat::makeSound(void) const
 {
-	std::cout << _type << ": ..." << std::endl;
+	std::cout << this->type << ": ..." << std::endl;
 }

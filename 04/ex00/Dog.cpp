@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:38:07 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 04:11:06 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/22 11:40:02 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Dog::Dog(void)
 {
-	_type = "Dog";
+	this->type = "Dog";
 	std::cout << "Dog created" << std::endl;
 }
 
@@ -25,5 +25,5 @@ Dog::~Dog(void)
 
 void	Dog::makeSound(void) const
 {
-	std::cout << _type << ": BowwowBowwowBowwowBowwow..." << std::endl;
+	std::cout << this->type << ": BowwowBowwowBowwowBowwow..." << std::endl;
 }
