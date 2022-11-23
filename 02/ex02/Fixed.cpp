@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:26:38 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 14:39:26 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 06:28:41 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ float Fixed::toFloat(void) const
 	return (float)_value / (1 << _bits);
 }
 
-float Fixed::toInt(void) const
+int Fixed::toInt(void) const
 {
 	return(_value >> _bits);
 }
@@ -76,87 +76,60 @@ std::ostream& operator<<(std::ostream& out, const Fixed& fixed_nbr)
 //비교 연산자
 bool	Fixed::operator>(const Fixed &obj)
 {
-	return (this->toFloat() > obj.toFloat());
+	return (this->_value > obj.getRawBits());
 }
 
 bool	Fixed::operator<(const Fixed &obj)
 {
-	return (this->toFloat() < obj.toFloat());
+	return (this->_value < obj.getRawBits());
 }
 
 bool	Fixed::operator>=(const Fixed &obj)
 {
-	return (this->toFloat() >= obj.toFloat());	
+	return (this->_value >= obj.getRawBits());
 }
 
 bool	Fixed::operator<=(const Fixed &obj)
 {
-	return (this->toFloat() <= obj.toFloat());
+	return (this->_value <= obj.getRawBits());
 }
 
 bool	Fixed::operator==(const Fixed &obj)
 {
-	return (this->toFloat() == obj.toFloat());
+	return (this->_value == obj.getRawBits());
 }
 
 bool	Fixed::operator!=(const Fixed &obj)
 {
-	return (this->toFloat() != obj.toFloat());
+	return (this->_value != obj.getRawBits());
 }
 
 //산술 연산자
 Fixed	Fixed::operator+(const Fixed &obj)
 {
-	// Fixed	ret(this->toFloat() + obj.toFloat());
-	// return	(ret);
-	return (this->toFloat() + obj.toFloat());
+	Fixed	ret(this->toFloat() + obj.toFloat());
+	return	(ret);
 }
 
 Fixed	Fixed::operator-(const Fixed &obj)
 {
-	// Fixed	ret(this->toFloat() - obj.toFloat());
-	// return	(ret);
-	return (this->toFloat() - obj.toFloat());
+	Fixed	ret(this->toFloat() - obj.toFloat());
+	return	(ret);
 }
 
 Fixed	Fixed::operator*(const Fixed &obj)
 {
-	// Fixed	ret(this->toFloat() * obj.toFloat());
-	// return	(ret);	
-	return (this->toFloat() * obj.toFloat());
+	Fixed ret(this->toFloat() * obj.toFloat());
+	return (ret);	
 }
 
 Fixed	Fixed::operator/(const Fixed &obj)
 {
-	// Fixed	ret(this->toFloat() / obj.toFloat());
-	// return	(ret);
-	return (this->toFloat() / obj.toFloat());
+	Fixed	ret(this->toFloat() / obj.toFloat());
+	return	(ret);
 }
 
-//증감 연산자 -> 수정!!!
-// Fixed&	Fixed::operator++(void)
-// {
-// 	return (*this);
-// }
-
-// Fixed&	Fixed::operator--(void)
-// {
-// 	return (*this);
-// }
-
-// Fixed	Fixed::operator++(int)
-// {
-// 	Fixed f;
-// 	f = *this;
-// 	return (f);	
-// }
-
-// Fixed	Fixed::operator--(int)
-// {
-// 	Fixed f;
-// 	f = *this;
-// 	return (f);
-// }
+//증감 연산자
 Fixed	&Fixed::operator++(void) //전위
 {
 	this->setRawBits(this->getRawBits() + 1);
@@ -173,7 +146,7 @@ Fixed	Fixed::operator++(int) //후위
 {
 	Fixed	tmp;
 	tmp = *this;
-
+	
 	this->setRawBits(this->getRawBits() + 1);
 	return (tmp);
 }
@@ -190,13 +163,15 @@ Fixed	Fixed::operator--(int) //후위
 //오버로딩 멤버 함수
 Fixed& Fixed::min(Fixed& obj1, Fixed& obj2)
 {
-	if (obj1 < obj2)
+	std::cout << "member function min called" << std::endl;
+	if (obj1.getRawBits() < obj2.getRawBits())
 		return (obj1);
 	return (obj2);
 }
 
 const Fixed& Fixed::min(const Fixed& obj1, const Fixed& obj2)
 {
+	std::cout << "const member function min called" << std::endl;
 	if (obj1.getRawBits() < obj2.getRawBits())
 		return (obj1);
 	return (obj2);
@@ -204,13 +179,15 @@ const Fixed& Fixed::min(const Fixed& obj1, const Fixed& obj2)
 
 Fixed& Fixed::max(Fixed& obj1, Fixed& obj2)
 {
-	if (obj1 > obj2)
+	std::cout << "member function max called" << std::endl;
+	if (obj1.getRawBits() > obj2.getRawBits())
 		return (obj1);
 	return (obj2);
 }
 
 const Fixed& Fixed::max(const Fixed& obj1, const Fixed& obj2)
 {
+	std::cout << "const member function max called" << std::endl;
 	if (obj1.getRawBits() > obj2.getRawBits())
 		return (obj1);
 	return (obj2);	

@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:26:52 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/20 04:24:22 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 06:52:45 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ public:
 	Fixed(void);
 	Fixed(const int value);
 	Fixed(const float value);
+	Fixed(const Fixed& obj);
 	~Fixed(void);
 
-	Fixed(const Fixed& obj);
 	Fixed& operator=(const Fixed& obj);
 
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 
 	float toFloat(void) const;
-	float toInt(void) const;
+	int toInt(void) const;
 
 
-	//연산자 오버로딩
+	/* 연산자 오버로딩 */
 	//비교 연산자
 	bool	operator>(const Fixed &obj);
 	bool	operator<(const Fixed &obj);
@@ -57,7 +57,7 @@ public:
 	Fixed	operator++(int);
 	Fixed	operator--(int);
 
-	//오버로딩 멤버 함수
+	//min, max
 	static Fixed& min(Fixed& obj1, Fixed& obj2);
 	static const Fixed& min(const Fixed& obj1, const Fixed& obj2);
 	static Fixed& max(Fixed& obj1, Fixed& obj2);
