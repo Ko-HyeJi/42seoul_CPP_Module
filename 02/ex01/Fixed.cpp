@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 00:50:13 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 15:24:49 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 06:53:48 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Fixed::Fixed(void): _value(0)
 }
 
 Fixed::Fixed(const int value): _value(value << _bits) //정수 -> 고정소수점
-{
+{	
 	std::cout << "Int constructor called" << std::endl;
 }
 
@@ -64,13 +64,13 @@ float Fixed::toFloat(void) const
 }
 
 /* 고정소수점 값을 정수 값으로 변환 */
-float Fixed::toInt(void) const
+int Fixed::toInt(void) const
 {
 	return(_value >> _bits);
 }
 
 /* 출력(<<)연산자 오버로딩 -> 전역 함수로만 구현 가능 */
-std::ostream& operator<<(std::ostream& out, const Fixed& fixed_nbr)
+std::ostream& operator<<(std::ostream& out, const Fixed& obj)
 {
-	return(out << fixed_nbr.toFloat());
+	return(out << obj.toFloat());
 }
