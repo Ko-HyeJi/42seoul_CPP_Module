@@ -157,40 +157,34 @@ Fixed	Fixed::operator/(const Fixed &obj)
 // 	f = *this;
 // 	return (f);
 // }
-Fixed	&Fixed::operator++(void)
+Fixed	&Fixed::operator++(void) //전위
 {
 	this->setRawBits(this->getRawBits() + 1);
 	return (*this);
 }
 
-Fixed	&Fixed::operator--(void)
+Fixed	&Fixed::operator--(void) //전위
 {
 	this->setRawBits(this->getRawBits() - 1);
 	return (*this);
 }
 
-Fixed	Fixed::operator++(int value)
+Fixed	Fixed::operator++(int) //후위
 {
-	Fixed	aux;
+	Fixed	tmp;
+	tmp = *this;
 
-	aux = *this;
-
-	if (!value)
-		value = 1;
-	this->setRawBits(this->getRawBits() + value);
-	return (aux);
+	this->setRawBits(this->getRawBits() + 1);
+	return (tmp);
 }
 
-Fixed	Fixed::operator--(int value)
+Fixed	Fixed::operator--(int) //후위
 {
-	Fixed	aux;
+	Fixed	tmp;
+	tmp = *this;
 
-	aux = *this;
-
-	if (!value)
-		value = 1;
-	this->setRawBits(this->getRawBits() - value);
-	return (aux);
+	this->setRawBits(this->getRawBits() - 1);
+	return (tmp);
 }
 
 //오버로딩 멤버 함수
