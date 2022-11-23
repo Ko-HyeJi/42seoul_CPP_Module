@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 00:50:13 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/20 04:16:54 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/22 15:24:49 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,19 @@ void Fixed::setRawBits(int const raw)
 	this->_value = raw;
 }
 
-//고정소수점 값을 부동소수점 값으로 변환
+/* 고정소수점 값을 부동소수점 값으로 변환 */
 float Fixed::toFloat(void) const
 {
 	return (float)_value / (1 << _bits);
 }
 
-//고정소수점 값을 정수 값으로 변환
+/* 고정소수점 값을 정수 값으로 변환 */
 float Fixed::toInt(void) const
 {
 	return(_value >> _bits);
 }
 
-//삽입(<<)연산자 오버로딩
+/* 출력(<<)연산자 오버로딩 -> 전역 함수로만 구현 가능 */
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed_nbr)
 {
 	return(out << fixed_nbr.toFloat());
