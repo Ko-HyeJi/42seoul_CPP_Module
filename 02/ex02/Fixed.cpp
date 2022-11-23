@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:26:38 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/20 04:32:37 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/22 14:39:26 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,46 @@
 
 Fixed::Fixed(void): _value(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int value): _value(value << _bits)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float value): _value(roundf(value * (1 << _bits)))
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& obj)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
 }
 
 Fixed& Fixed::operator=(const Fixed& obj)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	this->_value = obj.getRawBits();
 	return (*this);
 }
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return (this->_value);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+	// std::cout << "setRawBits member function called" << std::endl;
 	this->_value = raw;
 }
 
@@ -72,7 +72,7 @@ std::ostream& operator<<(std::ostream& out, const Fixed& fixed_nbr)
 	return(out << fixed_nbr.toFloat());
 }
 
-//연산자 오버로딩
+/* 연산자 오버로딩 */
 //비교 연산자
 bool	Fixed::operator>(const Fixed &obj)
 {
@@ -107,53 +107,91 @@ bool	Fixed::operator!=(const Fixed &obj)
 //산술 연산자
 Fixed	Fixed::operator+(const Fixed &obj)
 {
-	Fixed	ret(this->toFloat() + obj.toFloat());
-	return	(ret);
+	// Fixed	ret(this->toFloat() + obj.toFloat());
+	// return	(ret);
+	return (this->toFloat() + obj.toFloat());
 }
 
 Fixed	Fixed::operator-(const Fixed &obj)
 {
-	Fixed	ret(this->toFloat() - obj.toFloat());
-	return	(ret);
+	// Fixed	ret(this->toFloat() - obj.toFloat());
+	// return	(ret);
+	return (this->toFloat() - obj.toFloat());
 }
 
 Fixed	Fixed::operator*(const Fixed &obj)
 {
-	Fixed	ret(this->toFloat() * obj.toFloat());
-	return	(ret);	
+	// Fixed	ret(this->toFloat() * obj.toFloat());
+	// return	(ret);	
+	return (this->toFloat() * obj.toFloat());
 }
 
 Fixed	Fixed::operator/(const Fixed &obj)
 {
-	Fixed	ret(this->toFloat() / obj.toFloat());
-	return	(ret);
+	// Fixed	ret(this->toFloat() / obj.toFloat());
+	// return	(ret);
+	return (this->toFloat() / obj.toFloat());
 }
 
 //증감 연산자 -> 수정!!!
-Fixed&	Fixed::operator++(void)
+// Fixed&	Fixed::operator++(void)
+// {
+// 	return (*this);
+// }
+
+// Fixed&	Fixed::operator--(void)
+// {
+// 	return (*this);
+// }
+
+// Fixed	Fixed::operator++(int)
+// {
+// 	Fixed f;
+// 	f = *this;
+// 	return (f);	
+// }
+
+// Fixed	Fixed::operator--(int)
+// {
+// 	Fixed f;
+// 	f = *this;
+// 	return (f);
+// }
+Fixed	&Fixed::operator++(void)
 {
+	this->setRawBits(this->getRawBits() + 1);
 	return (*this);
 }
 
-Fixed&	Fixed::operator--(void)
+Fixed	&Fixed::operator--(void)
 {
+	this->setRawBits(this->getRawBits() - 1);
 	return (*this);
 }
 
-Fixed	Fixed::operator++(int)
+Fixed	Fixed::operator++(int value)
 {
-	Fixed f;
-	f = *this;
-	return (f);	
+	Fixed	aux;
+
+	aux = *this;
+
+	if (!value)
+		value = 1;
+	this->setRawBits(this->getRawBits() + value);
+	return (aux);
 }
 
-Fixed	Fixed::operator--(int)
+Fixed	Fixed::operator--(int value)
 {
-	Fixed f;
-	f = *this;
-	return (f);
-}
+	Fixed	aux;
 
+	aux = *this;
+
+	if (!value)
+		value = 1;
+	this->setRawBits(this->getRawBits() - value);
+	return (aux);
+}
 
 //오버로딩 멤버 함수
 Fixed& Fixed::min(Fixed& obj1, Fixed& obj2)
