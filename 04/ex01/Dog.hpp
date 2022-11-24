@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:38:09 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 13:13:07 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/25 00:07:11 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Dog : public Animal
 {
 private:
 	Brain*	brain;
+
 public:
 	Dog(void);
 	Dog(Brain& b_obj);

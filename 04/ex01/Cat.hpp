@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:38:06 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 12:54:19 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/25 00:06:54 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ public:
 	~Cat(void);
 
 	void	makeSound(void) const;
+	
+	Brain&	getBrain(void) const;
+	void	setBrain(const Brain& brain);
 };
 
 #endif

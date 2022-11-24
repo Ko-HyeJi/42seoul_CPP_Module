@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:38:07 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 13:13:22 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/25 00:21:49 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 Dog::Dog(void)
 {
-	std::cout << "Dog created" << std::endl;
 	this->type = "Dog";
+	std::cout << "[ " << this->type << " created ]" << std::endl;
 	this->brain = new Brain();
 }
 
 Dog::Dog(Brain& b_obj)
 {
-	std::cout << "Dog created with copied brain" << std::endl;
 	this->type = "Dog";
+	std::cout << "[ " << this->type << " created with copied brain ]" << std::endl;
 	this->brain = new Brain(b_obj);
 }
 
 Dog::~Dog(void)
 {
 	delete this->brain;
-	std::cout << "Dog destroyed" << std::endl;
+	std::cout << "[ Dog destroyed ]" << std::endl;
 }
 
 void	Dog::makeSound(void) const

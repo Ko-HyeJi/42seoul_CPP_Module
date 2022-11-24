@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:46:20 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 13:01:30 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 23:47:46 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 Brain::Brain(void)
 {
-	std::cout << "Brain created" << std::endl;
+	std::cout << "[ Brain created ]" << std::endl;
 }
 
 Brain::Brain(const Brain& obj)
 {
 	*this = obj;
-	std::cout << "Brain copied" << std::endl;
+	std::cout << "[ Brain copied ]" << std::endl;
 }
 
 Brain::~Brain(void)
 {
-	std::cout << "Brain destroyed" << std::endl;
+	std::cout << "[ Brain destroyed ]" << std::endl;
 }
 
 Brain&	Brain::operator=(const Brain& obj)
 {
-	std::cout << "Assignment operator called" << std::endl;
+	std::cout << "[ Assignment operator called ]" << std::endl;
 	for (int i = 0; i < 100; i++) {
 		this->ideas[i] = obj.ideas[i];
 	}
