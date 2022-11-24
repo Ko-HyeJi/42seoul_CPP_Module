@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:38:02 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 11:40:13 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 23:09:43 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ protected:
 	std::string type;
 public:
 	Animal(void);
+	Animal(const std::string name);
 	Animal(const Animal& obj);
 	virtual ~Animal(void); // 가상 소멸자
 

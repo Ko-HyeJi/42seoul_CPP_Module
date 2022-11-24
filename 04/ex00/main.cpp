@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:38:19 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 04:46:03 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 23:14:51 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main()
 {
 	std::cout << "==================================================\n" << std::endl;
 	{
+		/* subject */
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
@@ -34,8 +35,9 @@ int main()
 		delete i;
 		delete j;
 	}
-	std::cout << "\n--------------------------------------------------\n" << std::endl;
+	std::cout << "\n==================================================\n" << std::endl;
 	{
+		/* WrongAnimal -> not using virtual keyword */
 		const WrongAnimal* wAnimal = new WrongAnimal();
 		const WrongAnimal* wCat = new WrongCat();
 		
@@ -47,6 +49,5 @@ int main()
 		delete wCat;
 	}
 	std::cout << "\n==================================================" << std::endl;
-	
 	return 0; 
 }

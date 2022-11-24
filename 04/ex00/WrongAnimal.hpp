@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 04:33:29 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 11:40:20 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 22:58:58 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ protected:
 	std::string type;
 public:
 	WrongAnimal(void);
+	WrongAnimal(const std::string name);
 	WrongAnimal(const WrongAnimal& obj);
 	~WrongAnimal(void);
 

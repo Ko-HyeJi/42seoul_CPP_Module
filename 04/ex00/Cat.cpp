@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:38:04 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 11:40:02 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 23:10:57 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 Cat::Cat(void)
 {
 	this->type = "Cat";
-	std::cout << "Cat created" << std::endl;
+	std::cout << "[ " << this->type << " created ]" << std::endl;
 }
 
 Cat::~Cat(void)
 {
-	std::cout << "Cat destroyed" << std::endl;
+	std::cout << "[ Cat destroyed ]" << std::endl;
 }
 
 void	Cat::makeSound(void) const
 {
-	std::cout << this->type << ": ..." << std::endl;
+	std::cout << this->type << ": MeowMeowMeowMeowMeow..." << std::endl;
 }

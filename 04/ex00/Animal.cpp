@@ -6,32 +6,37 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:38:00 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 13:00:49 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 23:10:00 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(void) : type("Default")
+Animal::Animal(void) : type("Animal")
 {
-	std::cout << "Animal created" << std::endl;
+	std::cout << "[ " << this->type << " created ]" << std::endl;
+}
+
+Animal::Animal(const std::string name) : type(name)
+{
+	std::cout << "[ " << this->type << " created ]" << std::endl;
 }
 
 Animal::Animal(const Animal& obj)
 {
 	*this = obj;
-	std::cout << "Animal copied" << std::endl;
+	std::cout << "[ " << this->type << " copied ]" << std::endl;
 }
 
 Animal::~Animal(void)
 {
-	std::cout << "Animal destroyed" << std::endl;
+	std::cout << "[ Animal destroyed ]" << std::endl;
 }
 
 Animal&	Animal::operator=(const Animal& obj)
 {
 	this->type = obj.getType();
-	std::cout << "Assignment operator called" << std::endl;
+	std::cout << "[ Assignment operator called ]" << std::endl;
 	return (*this);
 }
 
