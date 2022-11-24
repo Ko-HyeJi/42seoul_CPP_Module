@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:54:38 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/24 21:48:26 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 22:34:44 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ void ScavTrap::guardGate()
 		std::cout << ">> ScavTrap " << _Name << " already dead" << std::endl;
 	}
 	else if (_EnergyPoints <= 0) {
-		std::cout << ">> ScavTrap " << _Name << "switch mode failed: out of energy points" << std::endl;
+		std::cout << ">> ScavTrap " << _Name << " switch mode failed: out of energy points" << std::endl;
 	}
 	else {
-		std::cout << ">> ScavTrap" << _Name << " now in Gate keeper mode!" << std::endl;
+		std::cout << ">> ScavTrap " << _Name << " now in Gate keeper mode!" << std::endl;
 	}
 }

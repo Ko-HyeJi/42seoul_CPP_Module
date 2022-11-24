@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:48:56 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/24 22:09:02 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 22:41:31 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,22 @@ int main(void)
 		d.set_hit_points(0);
 		d.printStatus();
 		d.highFivesGuys();
+		std::cout << std::endl;
+	}
+
+	std::cout << "\n==================================================\n" << std::endl;
+	
+	{
+		/* upcasting virtual function */
+		FragTrap *tmp = new FragTrap("hyko");
+		tmp->highFivesGuys();
+		delete tmp;
+		std::cout << std::endl;
+		
+		
+		ClapTrap *tmp2 = new FragTrap("hyko");
+		// tmp2->highFivesGuys();
+		delete tmp2;
 		std::cout << std::endl;
 	}
 
