@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:54:05 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/24 21:45:54 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 22:36:28 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	ClapTrap(void);
 	ClapTrap(std::string Name);
 	ClapTrap(ClapTrap& obj);
-	~ClapTrap(void);
+	virtual ~ClapTrap(void);
 
 	/* assignment operator */
 	ClapTrap& operator=(ClapTrap& obj);
@@ -44,10 +44,12 @@ public:
 	void			set_attack_damage(unsigned int damage);
 
 	/* member functions */	
-	virtual void attack(const std::string& target);
+	void attack(const std::string& target);
+	// virtual void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	void printStatus(void);
+	// virtual void guardGate(void) = 0;
 };
 
 #endif

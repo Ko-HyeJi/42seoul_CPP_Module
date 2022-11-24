@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:54:12 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/24 21:56:54 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 22:36:36 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,24 @@ int main(void)
 		std::cout << std::endl;
 	}
 
-	std::cout << "\n==================================================" << std::endl;
+	std::cout << "\n==================================================\n" << std::endl;
+	
+	{
+		/* upcasting virtual function */
+		ScavTrap *tmp = new ScavTrap("hyko");
+		tmp->attack("target");
+		tmp->guardGate();
+		delete tmp;
+		std::cout << std::endl;
+		
+		
+		ClapTrap *tmp2 = new ScavTrap("hyko");
+		tmp2->attack("target");	
+		// tmp2->guardGate();
+		delete tmp2;
+		std::cout << std::endl;
+	}
 
+	std::cout << "\n==================================================" << std::endl;
 	return (0);
 }
