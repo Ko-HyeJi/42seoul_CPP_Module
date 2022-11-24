@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:48:53 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 04:25:10 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 22:02:34 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ public:
 	FragTrap& operator=(FragTrap& obj);
 
 	/* member functions */	
-	void attack(const std::string& target);
 	void highFivesGuys(void);
 };
 

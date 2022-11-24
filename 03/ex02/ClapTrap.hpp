@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:48:48 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/22 04:25:15 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 21:40:07 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ public:
 	virtual void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
+	void printStatus(void);
 };
 
 #endif
