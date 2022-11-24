@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 00:26:38 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/24 06:28:41 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/25 01:12:48 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,7 @@ Fixed	Fixed::operator--(int) //후위
 //오버로딩 멤버 함수
 Fixed& Fixed::min(Fixed& obj1, Fixed& obj2)
 {
-	std::cout << "member function min called" << std::endl;
+	// std::cout << "member function min called" << std::endl;
 	if (obj1.getRawBits() < obj2.getRawBits())
 		return (obj1);
 	return (obj2);
@@ -171,7 +171,7 @@ Fixed& Fixed::min(Fixed& obj1, Fixed& obj2)
 
 const Fixed& Fixed::min(const Fixed& obj1, const Fixed& obj2)
 {
-	std::cout << "const member function min called" << std::endl;
+	// std::cout << "const member function min called" << std::endl;
 	if (obj1.getRawBits() < obj2.getRawBits())
 		return (obj1);
 	return (obj2);
@@ -179,7 +179,7 @@ const Fixed& Fixed::min(const Fixed& obj1, const Fixed& obj2)
 
 Fixed& Fixed::max(Fixed& obj1, Fixed& obj2)
 {
-	std::cout << "member function max called" << std::endl;
+	// std::cout << "member function max called" << std::endl;
 	if (obj1.getRawBits() > obj2.getRawBits())
 		return (obj1);
 	return (obj2);
@@ -187,7 +187,7 @@ Fixed& Fixed::max(Fixed& obj1, Fixed& obj2)
 
 const Fixed& Fixed::max(const Fixed& obj1, const Fixed& obj2)
 {
-	std::cout << "const member function max called" << std::endl;
+	// std::cout << "const member function max called" << std::endl;
 	if (obj1.getRawBits() > obj2.getRawBits())
 		return (obj1);
 	return (obj2);	

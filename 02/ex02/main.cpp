@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 04:11:10 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/24 06:35:06 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/25 01:13:48 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 int main( void ) 
 { 
+	std::cout << "\n--------------------------------------------------\n" << std::endl;
+	
 	{
 		/* subject */
 		
@@ -37,7 +39,15 @@ int main( void )
 	
 	{
 		/* 비교 연산자 */
-		
+		Fixed a(42);
+		Fixed b(42.42f);
+
+		std::cout << (a > b) << std::endl; // F
+		std::cout << (a < b) << std::endl; // T
+		std::cout << (a >= b) << std::endl; // F
+		std::cout << (a <= b) << std::endl; // T
+		std::cout << (a == b) << std::endl; // F
+		std::cout << (a != b) << std::endl; // T
 		
 	}
 	
@@ -45,8 +55,13 @@ int main( void )
 	
 	{
 		/* 산술 연산자 */
-		
-		
+		Fixed a(42);
+		Fixed b(42.42f);
+
+		std::cout << (a + b) << std::endl;
+		std::cout << (a - b) << std::endl;
+		std::cout << (a * b) << std::endl;
+		std::cout << (a / b) << std::endl;
 	}
 	
 	std::cout << "\n--------------------------------------------------\n" << std::endl;
@@ -78,5 +93,6 @@ int main( void )
 		std::cout << Fixed::max(aa, bb) << std::endl;
 	}
 	
+	std::cout << "\n--------------------------------------------------\n" << std::endl;
 	return 0;
 }
