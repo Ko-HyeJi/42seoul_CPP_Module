@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:54:12 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/21 17:45:41 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 21:56:54 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,78 +18,75 @@ int main(void)
 	
 	{
 		ScavTrap	a("Alpha");
-		std::cout << std::endl;
-		
-		std::cout << "before attack EP: " << a.get_energy_points() << std::endl;
+
+		a.printStatus();		
 		a.attack("target");
-		std::cout << "after attack EP: " << a.get_energy_points() << std::endl;
-		std::cout << std::endl;
+		a.printStatus();		
 
 		while (a.get_energy_points()) {
 			a.attack("target");
 		}
+		a.printStatus();		
 		a.attack("target");
-		std::cout << std::endl;
 
 		a.set_hit_points(0);
+		a.printStatus();		
 		a.attack("target");
 		std::cout << std::endl;
 	}
 	
-	std::cout << "\n--------------------------------------------------\n" << std::endl;
+	std::cout << "\n==================================================\n" << std::endl;	
 
 	{
 		ScavTrap	b("Bravo");
-		std::cout << std::endl;
-		
-		std::cout << "before damage HP: " << b.get_hit_points() << std::endl;
+	
+		b.printStatus();		
 		b.takeDamage(15);
-		std::cout << "after damage HP: " << b.get_hit_points() << std::endl;
-		std::cout << std::endl;
+		b.printStatus();		
 		
 		while (b.get_hit_points()) {
 			b.takeDamage(15);
 		}
+		b.printStatus();		
 		b.takeDamage(15);
 		std::cout << std::endl;
 	}
 
-	std::cout << "\n--------------------------------------------------\n" << std::endl;
+	std::cout << "\n==================================================\n" << std::endl;	
 
 	{
 		ScavTrap	c("Charlie");
-		std::cout << std::endl;
 		
-		std::cout << "before repair EP: " << c.get_energy_points() << "  HP: " << c.get_hit_points() << std::endl;
+		c.printStatus();
 		c.beRepaired(15);
-		std::cout << "after repair EP: " << c.get_energy_points() << "  HP: " << c.get_hit_points() << std::endl;
-		std::cout << std::endl;
+		c.printStatus();
 		
 		while (c.get_energy_points()) {
 			c.beRepaired(15);
 		}
+		c.printStatus();
 		c.beRepaired(15);
-		std::cout << std::endl;
 
 		c.set_hit_points(0);
+		c.printStatus();
 		c.beRepaired(15);
 		std::cout << std::endl;
 	}
 	
-	std::cout << "\n--------------------------------------------------\n" << std::endl;
+	std::cout << "\n==================================================\n" << std::endl;	
 
 	{
 		ScavTrap	d("Delta");
+	
 		std::cout << std::endl;
-
 		d.guardGate();
-		std::cout << std::endl;
 		
 		d.set_energy_points(0);
+		d.printStatus();
 		d.guardGate();
-		std::cout << std::endl;
 		
 		d.set_hit_points(0);
+		d.printStatus();
 		d.guardGate();
 		std::cout << std::endl;
 	}

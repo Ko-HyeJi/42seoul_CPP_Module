@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:53:57 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/21 17:41:08 by hyko             ###   ########.fr       */
+/*   Updated: 2022/11/24 21:45:48 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 ClapTrap::ClapTrap(void) : _Name("default"), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
 {
-	std::cout << "ClapTrap " << _Name << " created" << std::endl;
+	std::cout << "[ ClapTrap " << _Name << " created ]" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string Name) : _Name(Name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
 {
-	std::cout << "ClapTrap " << _Name << " created" << std::endl;
+	std::cout << "[ ClapTrap " << _Name << " created ]" << std::endl;	
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "ClapTrap " << _Name << " destroyed" << std::endl;
+	std::cout << "[ ClapTrap " << _Name << " destroyed ]" << std::endl;	
 }
 
 ClapTrap::ClapTrap(ClapTrap& obj)
 {
 	*this = obj;
-	std::cout << "ClapTrap " << _Name << " copied" << std::endl;
+	std::cout << "[ ClapTrap " << _Name << " copied ]" << std::endl;	
 }
 
 ClapTrap& ClapTrap::operator=(ClapTrap& obj)
 {
-	std::cout << "Assignment operator called" << std::endl;
+	std::cout << "[ Assignment operator called ]" << std::endl;
 	_Name = obj.get_name();
 	_HitPoints = obj.get_hit_points();
 	_EnergyPoints = obj.get_energy_points();
@@ -86,14 +86,14 @@ void	ClapTrap::set_attack_damage(unsigned int damage)
 void ClapTrap::attack(const std::string& target)
 {
 	if (_HitPoints <= 0) {
-		std::cout << "CalpTrap " << _Name << " already dead" << std::endl;
+		std::cout << ">> CalpTrap " << _Name << " already dead" << std::endl;
 	}
 	else if (_EnergyPoints <= 0) {
-		std::cout << "ClapTrap " << _Name << " attack failed: out of energy points" << std::endl;
+		std::cout << ">> ClapTrap " << _Name << " attack failed: out of energy points" << std::endl;
 	}
 	else {
 		_EnergyPoints--;	
-		std::cout << "CalpTrap " << _Name << " attacks " << target << \
+		std::cout << ">> CalpTrap " << _Name << " attacks " << target << \
 		", causing " << _AttackDamage << " points of damage!" << std::endl;
 	}
 }
@@ -101,15 +101,15 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (_HitPoints <= 0) {
-		std::cout << "CalpTrap " << _Name << " already dead" << std::endl;
+		std::cout << ">> CalpTrap " << _Name << " already dead" << std::endl;
 	}	
 	else if (_HitPoints >= amount) {
-		std::cout << "CalpTrap " << _Name << " took " \
+		std::cout << ">> CalpTrap " << _Name << " took " \
 		<< amount << " points of damage!" << std::endl;
 		_HitPoints -= amount;
 	}
 	else {
-		std::cout << "CalpTrap " << _Name << " took " \
+		std::cout << ">> CalpTrap " << _Name << " took " \
 		<< _HitPoints << " points of damage!" << std::endl;
 		_HitPoints = 0;
 	}
@@ -118,21 +118,24 @@ void ClapTrap::takeDamage(unsigned int amount)
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_HitPoints <= 0) {
-		std::cout << "CalpTrap " << _Name << " already dead" << std::endl;
+		std::cout << ">> CalpTrap " << _Name << " already dead" << std::endl;
 	}
 	else if (_EnergyPoints <= 0) {
-		std::cout << "ClapTrap " << _Name << " repair failed: out of energy points" << std::endl;
-	}
-	else if (_EnergyPoints >= amount) {
-		std::cout << "ClapTrap " << _Name << " increased " \
-		<< amount << " point of hit points!" << std::endl;
-		_HitPoints += amount; 
-		_EnergyPoints -= amount;
+		std::cout << ">> ClapTrap " << _Name << " repair failed: out of energy points" << std::endl;
 	}
 	else {
-		std::cout << "ClapTrap " << _Name << " increased " \
-		<< _EnergyPoints << " point of hit points!" << std::endl;
-		_HitPoints += _EnergyPoints;
-		_EnergyPoints = 0;
+		std::cout << ">> ClapTrap " << _Name << " increased " \
+		<< amount << " point of hit points!" << std::endl;
+		_HitPoints += amount; 
+		_EnergyPoints--;
 	}
+}
+
+void ClapTrap::printStatus(void)
+{
+	std::cout << "\n***** status *******" << std::endl;
+	std::cout << "name: " << this->get_name() << std::endl;
+	std::cout << "HP: "<< this->get_hit_points() << std::endl;
+	std::cout << "EP: " <<this->get_energy_points() << std::endl;
+	std::cout << "********************\n" << std::endl;
 }
