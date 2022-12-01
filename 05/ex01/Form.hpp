@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:18:49 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/29 16:44:27 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/01 15:09:09 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,31 @@
 
 #include <iostream>
 #include <exception>
+#include "Bureaucrat.hpp"
 
 #define GRADE_MIN   150
 #define GRADE_MAX   1
 
+class Bureaucrat;
+
 class Form
 {
 private:
-    const std::string   _name;
-    bool                _signed;
-    int                 _signGrade;
-    int                 _executeGrade;
+    const std::string	_name;
+    bool				_signed;
+    const int			_signGrade;
+    const int			_executeGrade;
 
 public:
     Form(const std::string name, const int signGrade, const int executeGrade);
     Form(const Form& obj);
     ~Form(void);
+    Form& operator=(const Form& obj);
 
-    Form& operator=(From)
+	std::string	getName(void) const;
+    bool		getSigned(void) const;
+    int			getSignGrade(void) const;
+    int			getExecuteGrade(void) const;
 
     class	GradeTooHighException : public std::exception {
         const char* what() const throw();
@@ -40,6 +47,8 @@ public:
     class   GradeTooLowException : public std::exception {
         const char* what() const throw();
     };
+
+	void	beSigned(const Bureaucrat &bureaucrat);
 
 };
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:12:35 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/29 16:41:24 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/01 15:08:07 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,13 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 	return ("Exception: Grade Too Low");
 }
 
+void	Bureaucrat::signForm(const Form& form) const
+{
+	if (form.getSigned() == true)
+		std::cout << "<" << this->getName() <<  "> signed <" << form.getName() << ">" << std::endl;
+	else
+		std::cout << "<" << this->getName() <<  "> couldn’t sign <" << form.getName() << "> because <Grade Too Low>" << std::endl;
+}
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj)
 {

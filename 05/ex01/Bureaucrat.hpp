@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:12:37 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/29 16:15:32 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/01 15:07:40 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
 
 #define GRADE_MIN   150
 #define GRADE_MAX   1
+
+class Form;
 
 class Bureaucrat
 {
@@ -45,6 +48,8 @@ public:
     class   GradeTooLowException : public std::exception {
         const char* what() const throw();
     };
+
+	void	signForm(const Form& form) const;
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj);

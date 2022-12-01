@@ -3,22 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:12:38 by hyko              #+#    #+#             */
-/*   Updated: 2022/11/29 16:28:04 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/01 15:06:18 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include <string>
+#include "Form.hpp"
 
 int main(void)
 {
     try
     {
-        std::cout << false << std::endl;
-        
+        Form f("form", 100, 100);
+		std::cout << f << std::endl;
+		
+		Bureaucrat b("bureaucrat", 99);
+		f.beSigned(b);
+		std::cout << f << std::endl;
     }
     catch (std::exception& e) 
     {
