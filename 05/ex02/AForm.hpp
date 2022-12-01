@@ -28,10 +28,10 @@ private:
     const std::string	_name;
     bool				_signed;
     const int			_signGrade;
-    const int			_executeGrade;
+    const int			_execGrade;
 
 public:
-    AForm(const std::string name, const int signGrade, const int executeGrade);
+    AForm(const std::string name, const int signGrade, const int execGrade);
     AForm(const AForm& obj);
     virtual ~AForm(void);
     AForm& operator=(const AForm& obj);
@@ -39,7 +39,7 @@ public:
 	std::string	getName(void) const;
     bool		getSigned(void) const;
     int			getSignGrade(void) const;
-    int			getExecuteGrade(void) const;
+    int			getExecGrade(void) const;
 
     class	GradeTooHighException : public std::exception {
         const char* what() const throw();

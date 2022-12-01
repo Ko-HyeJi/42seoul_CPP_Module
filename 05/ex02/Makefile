@@ -6,7 +6,7 @@
 #    By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 10:12:40 by hyko              #+#    #+#              #
-#    Updated: 2022/12/01 17:11:28 by hyko             ###   ########.fr        #
+#    Updated: 2022/12/02 04:29:18 by hyko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,12 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRCS = main.cpp \
+Bureaucrat.cpp \
+AForm.cpp \
+ShrubberyCreationForm.cpp \
+RobotomyRequestForm.cpp \
+PresidentialPardonForm.cpp
 	
 OBJS = $(SRCS:.cpp=.o)
 

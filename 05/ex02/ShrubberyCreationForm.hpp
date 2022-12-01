@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:51 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/01 17:51:00 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/02 05:12:47 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <fstream>
 #include "AForm.hpp"
-
 
 // Required grades: sign 145, exec 137
 class ShrubberyCreationForm : public AForm
@@ -30,6 +29,7 @@ public:
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm& obj);
 
 	const std::string	getTarget(void) const;
+	void				setTarget(const std::string target);
 
 	void	execute(const Bureaucrat& executor) const;
 };
