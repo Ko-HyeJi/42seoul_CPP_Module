@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:18:47 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/01 15:10:25 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/01 16:29:25 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ Form::Form(const std::string name, const int signGrade, const int executeGrade)
 	if (_signGrade < GRADE_MAX || _executeGrade < GRADE_MAX)
 		throw (GradeTooHighException());
     std::cout << "Form " << _name << " created" << std::endl;
+}
+Form::Form(const Form& obj) : _signGrade(0), _executeGrade(0)
+{
+	*this = obj;
+	std::cout << "Form " << _name << " copied" << std::endl;
 }
 
 Form::~Form(void)
