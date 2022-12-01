@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:12:38 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/01 14:35:34 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/02 03:36:02 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(void)
     }
     catch (std::exception& e) 
     {
-        std::cout << e.what() << std::endl;
+        std::cout << RED << e.what() << WHITE << std::endl;
     }
     return (0);
 }
