@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:18:49 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/01 16:29:28 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/02 04:09:32 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ private:
     const std::string	_name;
     bool				_signed;
     const int			_signGrade;
-    const int			_executeGrade;
+    const int			_execGrade;
 
 public:
-    Form(const std::string name, const int signGrade, const int executeGrade);
+    Form(const std::string name, const int signGrade, const int execGrade);
     Form(const Form& obj);
     ~Form(void);
     Form& operator=(const Form& obj);
@@ -39,7 +39,7 @@ public:
 	std::string	getName(void) const;
     bool		getSigned(void) const;
     int			getSignGrade(void) const;
-    int			getExecuteGrade(void) const;
+    int			getExecGrade(void) const;
 
     class	GradeTooHighException : public std::exception {
         const char* what() const throw();

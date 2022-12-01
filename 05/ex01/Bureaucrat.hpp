@@ -6,12 +6,22 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:12:37 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/01 15:07:40 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/02 03:28:38 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
+
+#define DEFAULT "\033[0m"
+#define BLACK "\033[0;30m"
+#define RED "\033[0;31m"
+#define GREEN "\033[0;32m"
+#define YELLOW "\033[0;33m"
+#define BLUE "\033[0;34m"
+#define PURPLE "\033[0;35m"
+#define CYAN "\033[0;36m"
+#define WHITE "\033[0;37m"
 
 #include <iostream>
 #include <exception>

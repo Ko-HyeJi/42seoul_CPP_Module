@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:12:35 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/01 15:08:07 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/02 04:15:03 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name), _
 		throw (GradeTooLowException());
 	if (_grade < GRADE_MAX)
 		throw (GradeTooHighException());
-	std::cout << "Bureaucrat " << getName() << " created" << std::endl;
+	std::cout << YELLOW << "Bureaucrat \"" << getName() << "\" created" << WHITE << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &obj)
 {
 	*this = obj;
-	std::cout << "Bureaucrat " << getName() << " copied" << std::endl;
+	std::cout << YELLOW << "Bureaucrat \"" << getName() << "\" copied" << WHITE << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Bureaucrat " << getName() << " destroyed" << std::endl;	
+	std::cout << YELLOW << "Bureaucrat \"" << getName() << "\" destroyed" << WHITE << std::endl;	
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &obj)
@@ -76,23 +76,25 @@ void        Bureaucrat::decrementGrade(void)
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Exception: Grade Too High");
+	return ("[Exception] Grade Too High");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Exception: Grade Too Low");
+	return ("[Exception] Grade Too Low");
 }
 
 void	Bureaucrat::signForm(const Form& form) const
 {
 	if (form.getSigned() == true)
 		std::cout << "<" << this->getName() <<  "> signed <" << form.getName() << ">" << std::endl;
-	else
+	else {
 		std::cout << "<" << this->getName() <<  "> couldn’t sign <" << form.getName() << "> because <Grade Too Low>" << std::endl;
+		throw (GradeTooLowException());
+	}
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj)
 {
-	return(out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".");
+	return(out << CYAN << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << WHITE);
 }
