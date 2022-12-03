@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:55:20 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/03 22:24:12 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 00:29:19 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,24 @@ Convert::Convert(char* data) : _data(data) {}
 
 Convert::~Convert() {}
 
-void    Convert::_infnan(void)
+bool    Convert::_isInfOrNan(void)
 {
-    if (!strcmp(_data, "-inff") || !strcmp(_data, "-inf"))
-        _type = "n_inf";
-    if (!strcmp(_data, "+inff") || !strcmp(_data, "+inf"))
-        _type = "p_inf";
-    if (!strcmp(_data, "nanf") || !strcmp(_data, "nan"))
-        _type = "nan";
+    if (!strcmp(_data, "-inff") || !strcmp(_data, "+inff") || !strcmp(_data, "nanf")) {
+        _type = "float";
+        return (true);
+    }
+    if (!strcmp(_data, "-inf") || !strcmp(_data, "+inf") || !strcmp(_data, "nan")) {
+        _type = "double";
+        return (true);
+    }
+    return (false);
 }
 
 void    Convert::_checkDataType(void)
 {
+    if (_isInfOrNan())
+        return ;
+        
     int len = strlen(_data);
     bool p_flag = false;
     
@@ -59,7 +65,6 @@ void    Convert::_checkDataType(void)
 void    Convert::execute(void)
 {   
     _checkDataType();
-    _infnan();
 
     if (_type == "char")
         _printChar(_data[0]);
@@ -69,12 +74,6 @@ void    Convert::execute(void)
         _printFloat(static_cast<float>(atof(_data)));
     else if (_type == "double")
         _printDouble(atof(_data));
-    else if (_type == "n_inf")
-        // std::cout << "nan" << std::endl;
-    else if (_type == "p_inf")
-        // std::cout << "nan" << std::endl;
-    else if (_type == "nan")
-        // std::cout << "nan" << std::endl;
     else
         throw (InvalidArgumentException());
 }
@@ -98,14 +97,21 @@ void    Convert::_printInt(int i)
     std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
 }
 
+
 void    Convert::_printFloat(float f)
 {   
-    char c = static_cast<char>(f);
-    if (isprint(c))
-        std::cout << "char: " << c << std::endl;
-    else
-        std::cout << "char: Non displayable" << std::endl;
-    std::cout << "int: " << static_cast<int>(f) << std::endl;
+    if (_isInfOrNan()) {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+    }
+    else {
+        char c = static_cast<char>(f);
+        if (isprint(c))
+            std::cout << "char: " << c << std::endl;
+        else
+            std::cout << "char: Non displayable" << std::endl;
+        std::cout << "int: " << static_cast<int>(f) << std::endl;
+    }
     if (f == static_cast<int>(f)) {
         std::cout << "float: " << f << ".0f" << std::endl;
         std::cout << "double: " << static_cast<double>(f) << ".0" << std::endl;
@@ -118,12 +124,18 @@ void    Convert::_printFloat(float f)
 
 void    Convert::_printDouble(double d)
 {    
-    char c = static_cast<char>(d);
-    if (isprint(c))
-        std::cout << "char: " << c << std::endl;
-    else
-        std::cout << "char: Non displayable" << std::endl;
-    std::cout << "int: " << static_cast<int>(d) << std::endl;
+    if (_isInfOrNan()) {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+    }
+    else {
+        char c = static_cast<char>(d);
+        if (isprint(c))
+            std::cout << "char: " << c << std::endl;
+        else
+            std::cout << "char: Non displayable" << std::endl;
+        std::cout << "int: " << static_cast<int>(d) << std::endl;
+    }
     if (d == (int)d) {
         std::cout << "float: " << static_cast<float>(d) << ".0f" << std::endl;
         std::cout << "double: " << d << ".0" << std::endl;
@@ -132,14 +144,6 @@ void    Convert::_printDouble(double d)
         std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
         std::cout << "double: " << d << std::endl;
     }
-}
-
-void    Convert::_printInfNan(void)
-{
-    std::cout << "char: " << c << std::endl;
-    std::cout << "int: " << static_cast<int>(c) << std::endl;
-    std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
-    std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
 }
 
 const char* Convert::InvalidArgumentException::what() const throw()
