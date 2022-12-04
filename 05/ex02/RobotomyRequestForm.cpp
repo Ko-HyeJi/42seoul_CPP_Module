@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:47 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/02 05:09:21 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:35:30 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,9 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
 	std::cout << YELLOW << "RobotomyRequestForm \"" << this->getTarget() << "\" created" << WHITE << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm& obj) 
-: AForm(obj), _target(obj.getTarget())
-{
-	std::cout << YELLOW << "RobotomyRequestForm \"" << this->getTarget() << "\" copied" << WHITE << std::endl;
-}
-
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 	std::cout << YELLOW << "RobotomyRequestForm \"" << this->getTarget() << "\" destroyed" << WHITE << std::endl;
-}
-
-RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& obj)
-{
-	return *(dynamic_cast<RobotomyRequestForm*>(&(AForm::operator=(obj)))); //dynamic_cast
 }
 
 const std::string	RobotomyRequestForm::getTarget(void) const

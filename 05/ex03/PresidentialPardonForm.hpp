@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:45 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/02 04:31:42 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:34:34 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ class PresidentialPardonForm : public AForm
 private:
 	const std::string	_target;
 	void				_pardon(void) const;
+	PresidentialPardonForm(void);
+	PresidentialPardonForm(PresidentialPardonForm& obj);
+    PresidentialPardonForm& operator=(const PresidentialPardonForm& obj);
+
 public:
 	PresidentialPardonForm(std::string target);
-	PresidentialPardonForm(PresidentialPardonForm& obj);
 	~PresidentialPardonForm();
-    PresidentialPardonForm& operator=(const PresidentialPardonForm& obj);
 
 	const std::string	getTarget(void) const;
 	void				setTarget(const std::string target);

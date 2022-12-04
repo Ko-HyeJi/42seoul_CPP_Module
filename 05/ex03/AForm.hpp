@@ -29,12 +29,13 @@ private:
     bool				_signed;
     const int			_signGrade;
     const int			_execGrade;
+    AForm(void);
+    AForm(const AForm& obj);
+    AForm& operator=(const AForm& obj);
 
 public:
     AForm(const std::string name, const int signGrade, const int execGrade);
-    AForm(const AForm& obj);
     virtual ~AForm(void);
-    AForm& operator=(const AForm& obj);
 
 	std::string	getName(void) const;
     bool		getSigned(void) const;
@@ -51,7 +52,6 @@ public:
 	void	beSigned(const Bureaucrat &bureaucrat);
 
 	virtual void	execute(const Bureaucrat& executor) const = 0;
-    virtual const std::string	getTarget(void) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& out, const AForm& obj);

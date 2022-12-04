@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:50 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/02 05:12:14 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:36:00 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	std::cout << YELLOW << "ShrubberyCreationForm \"" << this->getTarget() << "\" created" << WHITE << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm& obj) 
-: AForm(obj), _target(obj.getTarget())
-{
-	std::cout << YELLOW << "ShrubberyCreationForm \"" << this->getTarget() << "\" copied" << WHITE << std::endl;
-}
-
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 	std::cout << YELLOW << "ShrubberyCreationForm \"" << this->getTarget() << "\" destroyed" << WHITE << std::endl;
-}
-
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& obj)
-{
-	return *(dynamic_cast<ShrubberyCreationForm*>(&(AForm::operator=(obj)))); //dynamic_cast
 }
 
 const std::string	ShrubberyCreationForm::getTarget(void) const

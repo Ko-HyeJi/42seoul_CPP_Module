@@ -22,26 +22,9 @@ AForm::AForm(const std::string name, const int signGrade, const int execGrade)
     std::cout << YELLOW << "AForm \"" << _name << "\" created"  << WHITE << std::endl;
 }
 
-AForm::AForm(const AForm& obj) : _signGrade(0), _execGrade(0)
-{
-	*this = obj;
-	std::cout << YELLOW << "Form \"" << _name << "\" copied" << WHITE << std::endl;
-}
-
 AForm::~AForm(void)
 {
     std::cout << YELLOW << "AForm \"" << _name << "\" destroyed" << WHITE << std::endl;
-}
-
-AForm& AForm::operator=(const AForm& obj)
-{
-	if (this != &obj) {
-		*(const_cast<std::string*>(&_name)) = obj.getName();
-		_signed = obj.getSigned();
-		*(const_cast<int*>(&_signGrade)) = obj.getSignGrade();
-		*(const_cast<int*>(&_execGrade)) = obj.getExecGrade();
-	}
-	return (*this);
 }
 
 std::string	AForm::getName(void) const
@@ -63,7 +46,6 @@ int	AForm::getExecGrade(void) const
 {
 	return (_execGrade);
 }
-
 
 const char*	AForm::GradeTooHighException::what() const throw()
 {

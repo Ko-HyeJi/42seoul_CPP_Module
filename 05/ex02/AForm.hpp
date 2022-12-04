@@ -29,12 +29,13 @@ private:
     bool				_signed;
     const int			_signGrade;
     const int			_execGrade;
+    AForm(void);
+    AForm(const AForm& obj);
+    AForm& operator=(const AForm& obj);
 
 public:
     AForm(const std::string name, const int signGrade, const int execGrade);
-    AForm(const AForm& obj);
     virtual ~AForm(void);
-    AForm& operator=(const AForm& obj);
 
 	std::string	getName(void) const;
     bool		getSigned(void) const;

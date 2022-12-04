@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:18:49 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/02 04:09:32 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:31:02 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ private:
     bool				_signed;
     const int			_signGrade;
     const int			_execGrade;
+    Form(void);
+    Form(const Form& obj);
+    Form& operator=(const Form& obj);
 
 public:
     Form(const std::string name, const int signGrade, const int execGrade);
-    Form(const Form& obj);
     ~Form(void);
-    Form& operator=(const Form& obj);
 
 	std::string	getName(void) const;
     bool		getSigned(void) const;

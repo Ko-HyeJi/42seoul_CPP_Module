@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:43 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/02 05:09:01 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:34:54 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,9 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 	std::cout << YELLOW << "PresidentialPardonForm \"" << this->getTarget() << "\" created" << WHITE << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm& obj) 
-: AForm(obj), _target(obj.getTarget())
-{
-	std::cout << YELLOW << "PresidentialPardonForm \"" << this->getTarget() << "\" copied" << WHITE << std::endl;
-}
-
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 	std::cout << YELLOW << "PresidentialPardonForm \"" << this->getTarget() << "\" destroyed" << WHITE << std::endl;
-}
-
-PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& obj)
-{
-	return *(dynamic_cast<PresidentialPardonForm*>(&(AForm::operator=(obj)))); //dynamic_cast
 }
 
 const std::string	PresidentialPardonForm::getTarget(void) const

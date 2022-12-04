@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:48 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/02 05:12:58 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:35:17 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ class RobotomyRequestForm : public AForm
 private:
 	const std::string	_target;
 	void				_makeDrillingNoise(void) const;
+	RobotomyRequestForm(void);
+	RobotomyRequestForm(RobotomyRequestForm& obj);
+    RobotomyRequestForm& operator=(const RobotomyRequestForm& obj);
+	
 public:
 	RobotomyRequestForm(std::string target);
-	RobotomyRequestForm(RobotomyRequestForm& obj);
 	~RobotomyRequestForm();
-    RobotomyRequestForm& operator=(const RobotomyRequestForm& obj);
 
 	const std::string	getTarget(void) const;
 	void				setTarget(const std::string target);

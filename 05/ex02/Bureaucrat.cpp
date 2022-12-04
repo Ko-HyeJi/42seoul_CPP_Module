@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:12:35 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/02 04:14:17 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:32:47 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,9 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name), _
 	std::cout << YELLOW << "Bureaucrat \"" << getName() << "\" created" << WHITE << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &obj)
-{
-	*this = obj;
-	std::cout << YELLOW << "Bureaucrat \"" << getName() << "\" copied" << WHITE << std::endl;
-}
-
 Bureaucrat::~Bureaucrat(void)
 {
 	std::cout << YELLOW << "Bureaucrat \"" << getName() << "\" destroyed" << WHITE << std::endl;	
-}
-
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat &obj)
-{
-	if (this != &obj) {
-		*(const_cast<std::string*>(&_name)) = obj.getName(); //const_cast
-		this->_grade = obj.getGrade();
-	}
-	return (*this);
 }
 
 const std::string Bureaucrat::getName(void) const

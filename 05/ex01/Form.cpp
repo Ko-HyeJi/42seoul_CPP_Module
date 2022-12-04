@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:18:47 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/02 04:14:49 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:31:29 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,10 @@ Form::Form(const std::string name, const int signGrade, const int execGrade)
 		throw (GradeTooHighException());
     std::cout << YELLOW << "Form \"" << _name << "\" created" << WHITE << std::endl;
 }
-Form::Form(const Form& obj) : _signGrade(0), _execGrade(0)
-{
-	*this = obj;
-	std::cout << YELLOW << "Form \"" << _name << "\" copied" << WHITE << std::endl;
-}
 
 Form::~Form(void)
 {
     std::cout << YELLOW << "Form \"" << _name << "\" destroyed" << WHITE << std::endl;
-}
-
-Form& Form::operator=(const Form& obj)
-{
-	if (this != &obj) {
-		*(const_cast<std::string*>(&_name)) = obj.getName();
-		_signed = obj.getSigned();
-		*(const_cast<int*>(&_signGrade)) = obj.getSignGrade();
-		*(const_cast<int*>(&_execGrade)) = obj.getExecGrade();
-	}
-	return (*this);
 }
 
 std::string	Form::getName(void) const
