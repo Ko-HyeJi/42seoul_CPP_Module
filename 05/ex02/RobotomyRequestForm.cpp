@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:47 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/04 15:35:30 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:48:06 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ RobotomyRequestForm::~RobotomyRequestForm()
 const std::string	RobotomyRequestForm::getTarget(void) const
 {
 	return (_target);
-}
-
-void	RobotomyRequestForm::setTarget(const std::string target)
-{
-	*(const_cast<std::string*>(&_target)) = target;
 }
 
 void	RobotomyRequestForm::execute(const Bureaucrat& executor) const

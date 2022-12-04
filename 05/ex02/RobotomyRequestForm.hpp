@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:48 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/04 15:35:17 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:47:51 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ public:
 	~RobotomyRequestForm();
 
 	const std::string	getTarget(void) const;
-	void				setTarget(const std::string target);
 
 	void	execute(const Bureaucrat& executor) const;
 };
