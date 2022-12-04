@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:50 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/04 15:36:00 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:48:11 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 const std::string	ShrubberyCreationForm::getTarget(void) const
 {
 	return (_target);
-}
-
-void	ShrubberyCreationForm::setTarget(const std::string target)
-{
-	*(const_cast<std::string*>(&_target)) = target;
 }
 
 void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const

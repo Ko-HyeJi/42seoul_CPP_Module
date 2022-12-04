@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:43 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/04 15:34:54 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:47:58 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ PresidentialPardonForm::~PresidentialPardonForm()
 const std::string	PresidentialPardonForm::getTarget(void) const
 {
 	return (_target);
-}
-
-void	PresidentialPardonForm::setTarget(const std::string target)
-{
-	*(const_cast<std::string*>(&_target)) = target;
 }
 
 void	PresidentialPardonForm::execute(const Bureaucrat& executor) const

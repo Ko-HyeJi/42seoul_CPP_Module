@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:51 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/04 15:35:48 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:47:53 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ public:
 	~ShrubberyCreationForm();
 
 	const std::string	getTarget(void) const;
-	void				setTarget(const std::string target);
 
 	void	execute(const Bureaucrat& executor) const;
 };

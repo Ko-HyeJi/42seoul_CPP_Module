@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:14:45 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/04 15:34:34 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/04 15:47:48 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ public:
 	~PresidentialPardonForm();
 
 	const std::string	getTarget(void) const;
-	void				setTarget(const std::string target);
 
 	void	execute(const Bureaucrat& executor) const;
 };
