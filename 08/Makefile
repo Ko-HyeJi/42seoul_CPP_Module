@@ -6,17 +6,17 @@
 #    By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 16:35:37 by hyko              #+#    #+#              #
-#    Updated: 2022/12/07 05:50:58 by hyko             ###   ########.fr        #
+#    Updated: 2022/12/07 06:46:21 by hyko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = easyfind
+NAME = span
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
-SRCS = main.cpp
+SRCS = main.cpp Span.cpp
 	
 OBJS = $(SRCS:.cpp=.o)
 
