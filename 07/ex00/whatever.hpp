@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:46:30 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/06 23:22:56 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/07 05:11:06 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void swap(T& a, T& b) {
 }
 
 template <typename T>
-T min(T a, T b) {
+T& min(T& a, T& b) {
 	return (a < b ? a : b);
 }
 
 template <typename T>
-T max(T a, T b) {
+T& max(T& a, T& b) {
 	return (a > b ? a : b);
 }
 
