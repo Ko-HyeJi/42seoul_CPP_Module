@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 23:36:33 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 05:05:44 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/07 05:16:25 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ private:
 
 public:
 	Array(void) : _arr(NULL), _size(0) {}
+	
 	Array(unsigned int n) : _arr(NULL), _size(n) {
 		if (_size)
 			_arr = new T[_size];
@@ -57,13 +58,12 @@ public:
 	}
 
 	T&	operator[](const unsigned int idx) {
-		// std::cout << "operator [] called" << std::endl;
 		if (idx >= _size)
 			throw (InvalidIndexException());
 		return _arr[idx];
 	}
+	
 	T& operator[](const unsigned int idx) const {
-		// std::cout << "const operator [] called" << std::endl;
 		if (idx >= _size)
 			throw (InvalidIndexException());
 		return _arr[idx];
