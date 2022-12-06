@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:46:30 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/05 15:00:40 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/06 23:22:56 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,12 @@ void swap(T& a, T& b) {
 
 template <typename T>
 T min(T a, T b) {
-	if (a < b)
-		return (a);
-	return (b);
+	return (a < b ? a : b);
 }
 
 template <typename T>
 T max(T a, T b) {
-	if (a > b)
-		return (a);
-	return (b);
+	return (a > b ? a : b);
 }
 
 #endif
