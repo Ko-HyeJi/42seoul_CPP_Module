@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:12:37 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/04 01:33:24 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/06 16:49:00 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ private:
 public:
     Bureaucrat(const std::string name, const int grade);
     ~Bureaucrat(void);
-    
 
     const std::string   getName(void) const;
     int                 getGrade(void) const;
