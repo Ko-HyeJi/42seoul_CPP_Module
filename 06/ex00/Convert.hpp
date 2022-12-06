@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Convert.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:55:18 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/05 14:38:53 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/06 19:48:28 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,21 @@
 class Convert
 {
 private:
-    char*       _data;
+    const char* _data;
     std::string _type;
+    bool        _isInfOrNan(void);
     void        _checkDataType(void);
     void        _printChar(char c);
     void        _printInt(int i);
     void        _printFloat(float f);
     void        _printDouble(double d);
-    bool        _isInfOrNan(void);
 
     Convert(void);
     Convert(const Convert& obj);
     Convert&    operator=(const Convert& obj);
 
 public:
-    Convert(char* data);
+    Convert(const char* data);
     ~Convert(void);
 
     void    execute(void);
