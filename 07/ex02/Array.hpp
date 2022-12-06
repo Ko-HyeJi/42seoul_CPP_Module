@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 23:36:33 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 04:21:20 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/07 04:33:11 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,14 @@ public:
 		if (_size)
 			_arr = new T[_size];
 	}
-	Array(const Array& obj) {
-		*this = obj;
-	}
+	
+	Array(const Array& obj) : _arr(NULL), _size(obj.size()) {
+		if (_size)
+			_arr = new T[_size];
+		for (unsigned int i = 0 ; i < _size ; ++i)
+			_arr[i] = obj[i];
+  	}
+	
 	~Array(void) {
 		if (_size) {
 			delete[] _arr;
