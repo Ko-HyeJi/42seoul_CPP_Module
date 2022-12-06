@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:46:30 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 04:58:44 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/07 05:13:09 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void iter(T* arr, int length, void (*f)(T&))
 }
 
 template <typename T>
-void	printFunc(T& arr)
+void	printFunc(T& val)
 {
-	std::cout << arr << " ";
+	std::cout << val << " ";
 }
 
 #endif
