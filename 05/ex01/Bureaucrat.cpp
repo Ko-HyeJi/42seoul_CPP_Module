@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:12:35 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/04 15:29:45 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/06 16:50:09 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void        Bureaucrat::setGrade(const int grade)
 		throw (GradeTooHighException());
 }
 
-
 void        Bureaucrat::incrementGrade(void)
 {
 	if (--_grade < GRADE_MAX)
@@ -57,7 +56,6 @@ void        Bureaucrat::decrementGrade(void)
 	if (++_grade > GRADE_MIN)
 		throw (GradeTooLowException());
 }
-
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()
 {

@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 18:07:17 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/02 11:19:05 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/06 17:48:00 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ AForm* Intern::makeForm(std::string formName, std::string formTarget)
             form = new PresidentialPardonForm(formTarget);
             break ;
         default :
-            std::cout << "here" << std::endl;
             form = NULL;
             throw (NoMatchingTypeException());
     }
@@ -64,5 +63,5 @@ AForm* Intern::makeForm(std::string formName, std::string formTarget)
 
 const char* Intern::NoMatchingTypeException::what() const throw()
 {
-	return ("[Exception] No Matching Type");
+	return ("[Exception] No Matching Type");3
 }

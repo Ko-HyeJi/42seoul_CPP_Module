@@ -6,11 +6,11 @@
 #    By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 10:12:40 by hyko              #+#    #+#              #
-#    Updated: 2022/12/02 10:23:10 by hyko             ###   ########.fr        #
+#    Updated: 2022/12/06 17:03:14 by hyko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = form
+NAME = intern
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98

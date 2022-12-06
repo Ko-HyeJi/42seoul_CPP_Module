@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:18:47 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/04 15:31:29 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/06 16:50:45 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	Form::getExecGrade(void) const
 {
 	return (_execGrade);
 }
-
 
 const char*	Form::GradeTooHighException::what() const throw()
 {
