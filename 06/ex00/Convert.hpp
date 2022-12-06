@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Convert.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:55:18 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/04 00:17:32 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/05 14:38:53 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,6 @@ public:
     ~Convert(void);
 
     void    execute(void);
-
-    class   InvalidArgumentException : public std::exception {
-        const char* what() const throw();
-    };
 };
 
 #endif

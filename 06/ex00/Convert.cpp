@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Convert.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:55:20 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/04 00:29:19 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/05 14:42:42 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void    Convert::execute(void)
     else if (_type == "double")
         _printDouble(atof(_data));
     else
-        throw (InvalidArgumentException());
+		throw ("Invalid Argument");
 }
 
 void    Convert::_printChar(char c)
@@ -144,9 +144,4 @@ void    Convert::_printDouble(double d)
         std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
         std::cout << "double: " << d << std::endl;
     }
-}
-
-const char* Convert::InvalidArgumentException::what() const throw()
-{
-	return ("[Exception] Invalid Argument");
 }
