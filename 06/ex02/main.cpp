@@ -69,7 +69,7 @@ void identify(Base& p)
 
 int	main(void)
 {
-	Base *base;
+	Base* base;
 	
 	for (int i = 0; i < 10; i++) {
 		base = generate();
