@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:12:38 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/02 13:34:45 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/06 17:12:04 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main(void)
 		AForm*	rrf;
 		
 		rrf = someRandomIntern.makeForm("robotomy request", "Bende3r");
-		std::cout << rrf->getName() << std::endl;
+		std::cout << "name: " << rrf->getName() << std::endl;
+		std::cout << "target: " << rrf->getTarget() << std::endl;
 		delete rrf;
-		
 	}
 	catch (std::exception& e) 
 	{
