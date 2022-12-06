@@ -29,9 +29,7 @@ int main(void)
 	Data before;
 	before.data = "aaa";
 	std::cout << "before: " << before.data << std::endl;
-	
 	uintptr_t ptr = serialize(&before);
-
 	Data* after;
 	after = deserialize(ptr);
 	std::cout << "after: " << after->data << std::endl;
