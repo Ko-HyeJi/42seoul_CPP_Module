@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+         #
+#    By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 14:46:39 by hyko              #+#    #+#              #
-#    Updated: 2022/12/05 14:52:25 by hyko             ###   ########.fr        #
+#    Updated: 2022/12/07 05:14:20 by hyko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = template
+NAME = whatever
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
