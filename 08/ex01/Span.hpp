@@ -6,38 +6,37 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 06:46:47 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 06:53:48 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/07 14:51:00 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
+#include <iostream>
+#include <exception>
+#include <vector>
+#include <algorithm>
+
 class Span
 {
 private:
-    unsigned int    _N;
+    unsigned int        _N;
+    std::vector<int>    _vec;
     
     Span(void);
 
 public:
-    Span(int N);
-    Span(Span& obj);
+    Span(unsigned int N);
+    Span(const Span& obj);
     ~Span(void);
-    Span& operator=(Span& obj);
+    Span& operator=(const Span& obj);
     
-    void    addNumber(int n);
-    int shortestSpan()
-    int longestSpan()
+    void    addNumber(const int n);
+    int     shortestSpan();
+    int     longestSpan();
+
+	void    printVector(void) const;
 };
-
-Span::Span(/* args */)
-{
-}
-
-Span::~Span()
-{
-}
-
 
 #endif
