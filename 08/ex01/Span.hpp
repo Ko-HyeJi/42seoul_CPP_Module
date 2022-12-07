@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 06:46:47 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 14:51:00 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/07 18:06:01 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class Span
 private:
     unsigned int        _N;
     std::vector<int>    _vec;
-    
+    bool                _isSorted;
+
     Span(void);
 
 public:
@@ -33,10 +34,16 @@ public:
     Span& operator=(const Span& obj);
     
     void    addNumber(const int n);
+    template <typename Iter>
+    void    addNumber(Iter begin, Iter end) {
+        while (begin != end) {
+            addNumber(*(begin++));
+        }
+    }
     int     shortestSpan();
     int     longestSpan();
 
-	void    printVector(void) const;
+    void    printVector(void) const;
 };
 
 #endif

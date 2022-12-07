@@ -6,13 +6,13 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 06:46:48 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 14:31:48 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/07 17:50:23 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span(unsigned int N) : _N(N) {}
+Span::Span(unsigned int N) : _N(N), _isSorted(false) {}
 
 // Span::Span(const Span& obj)
 // {
@@ -30,8 +30,9 @@ void    Span::addNumber(const int n)
 {
     if (_vec.size() < _N) {
         _vec.push_back(n);
-        sort(_vec.begin(), _vec.end());
-        _vec.erase(unique(_vec.begin(),_vec.end()),_vec.end());
+        _isSorted = false;
+        // sort(_vec.begin(), _vec.end());
+        // _vec.erase(unique(_vec.begin(),_vec.end()),_vec.end());
     }
     else
         throw (std::overflow_error("Vector Already Full"));
@@ -39,6 +40,11 @@ void    Span::addNumber(const int n)
 
 int     Span::shortestSpan()
 {
+    if (!_isSorted) {
+        sort(_vec.begin(), _vec.end());
+        _isSorted = true;
+    }
+
     if (_vec.size() < 2)
         throw (std::logic_error("Too Few Elements"));
     int span = INT_MAX;
@@ -52,6 +58,11 @@ int     Span::shortestSpan()
 
 int     Span::longestSpan()
 {
+    if (!_isSorted) {
+        sort(_vec.begin(), _vec.end());
+        _isSorted = true;
+    }
+
     if (_vec.size() < 2)
         throw (std::logic_error("Too Few Elements"));
     return (_vec.back() - _vec.front());
