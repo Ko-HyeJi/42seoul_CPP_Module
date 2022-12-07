@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:46:38 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/05 15:15:33 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/07 09:35:35 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ int main(void)
 	std::cout << "c = " << c << ", d = " << d << std::endl;
 	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	
+	const int e = 5;
+	const int f = 6;
+
+	::max(e, f);
+	std::cout << "e = " << e << ", f = " << f << std::endl;
+	std::cout << "min( e, f ) = " << ::min( e, f ) << std::endl;
+	std::cout << "max( e, f ) = " << ::max( e, f ) << std::endl;
 	
 	return 0; 
 }

@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 23:36:35 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 05:06:17 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/07 10:58:54 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,24 @@ int	main(void)
 		
 		Array<char> copy(5);
 		copy = arr;
+		copy[0] = 'z';
+
+		arr.printArray();
+		std::cout << std::endl;
 		copy.printArray();
 
 		std::cout << std::endl;
+
+		const Array<int> constArr(5);
 		
+
 		std::cout << arr[-1] << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+
 }
 
 // #define MAX_VAL 750

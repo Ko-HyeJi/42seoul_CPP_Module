@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:46:30 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 05:13:09 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/07 11:03:23 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ void iter(T* arr, int length, void (*f)(T&))
 	for (int i = 0; i < length; i++) {
 		f(arr[i]);
 	}
-	std::cout << std::endl;
 }
 
 template <typename T>
-void	printFunc(T& val)
+void iter(const T* arr, int length, void (*f)(const T&))
 {
-	std::cout << val << " ";
+	for (int i = 0; i < length; i++) {
+		f(arr[i]);
+	}
 }
 
 #endif
