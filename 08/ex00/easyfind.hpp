@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:35:41 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/08 19:28:35 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/09 01:30:20 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,21 @@
 #include <iostream>
 
 template <typename T>
-typename T::iterator	easyfind(T& container, int n)
+typename T::iterator	easyfind(T& container, const int n)
 {
-	typename T::iterator iter = std::find(std::begin(container), std::end(container), n);
-	if (iter == std::end(container))
-		throw std::runtime_error(std::to_string(n) + std::string(" is not in container"));
-	return iter;
+	typename T::iterator iter = std::find(container.begin(), container.end(), n);
+	if (iter == container.end())
+		throw (std::runtime_error("no occurrence is found"));
+	return (iter);
+}
+
+template <typename T>
+typename T::const_iterator	easyfind(const T& container, const int n)
+{
+	typename T::const_iterator iter = std::find(container.begin(), container.end(), n);
+	if (iter == container.end())
+		throw (std::runtime_error("no occurrence is found"));
+	return (iter);
 }
 
 #endif
