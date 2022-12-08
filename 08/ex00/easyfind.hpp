@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:35:41 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/09 01:30:20 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/09 03:34:17 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <exception>
 
 template <typename T>
 typename T::iterator	easyfind(T& container, const int n)
