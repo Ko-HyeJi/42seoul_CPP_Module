@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:46:30 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 09:39:29 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/08 16:39:45 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ T& min(T& a, T& b) {
 	return (a < b ? a : b);
 }
 
-template <typename T>
-const T& min(const T& a, const T& b) {
-	return (a < b ? a : b);
-}
+// template <typename T>
+// const T& min(const T& a, const T& b) {
+// 	return (a < b ? a : b);
+// }
 
 template <typename T>
 T& max(T& a, T& b) {
 	return (a > b ? a : b);
 }
 
-template <typename T>
-const T& max(const T& a, const T& b) {
-	return (a > b ? a : b);	
-}
+// template <typename T>
+// const T& max(const T& a, const T& b) {
+// 	return (a > b ? a : b);	
+// }
 
 #endif
