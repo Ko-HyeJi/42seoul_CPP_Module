@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:46:30 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/08 12:53:51 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/08 13:50:11 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void iter(T* arr, int length, void (*f)(T&))
 }
 
 template <typename T>
-void iter(const T* arr, const int length, void (*f)(const T&))
+void iter(const T* arr, int length, void (*f)(const T&))
 {
 	for (int i = 0; i < length; i++) {
 		f(arr[i]);

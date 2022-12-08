@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:46:38 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/08 12:51:29 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/08 13:49:40 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ int main(void)
     
     std::cout << "\ncalling iter with printer" << std::endl;
     iter(constIntArr, sizeof(constIntArr) / sizeof(const int), printer);
-    // iter(constIntArr, sizeof(constIntArr), addNum);
+    // iter(constIntArr, sizeof(constIntArr) / sizeof(const int), addNum);
     std::cout << std::endl;
 }
