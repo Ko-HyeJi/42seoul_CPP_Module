@@ -3,28 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 06:46:48 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/08 22:39:46 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/09 03:10:25 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib>
 #include "Span.hpp"
 
-Span::Span(unsigned int N) : _N(N), _isSorted(false) {}
+Span::Span(void) : _N(0), _isSorted(false) {} 
 
-// Span::Span(const Span& obj)
-// {
-	
-// }
+Span::Span(const unsigned int N) : _N(N), _isSorted(false) {}
+
+Span::Span(const Span& obj) : _N(obj.getSize()), _vec(obj.getVector()), _isSorted(obj.getIsSorted()) {}
 
 Span::~Span(void) {}
 
-// Span& Span::operator=(const Span& obj)
-// {
-
-// }
+Span& Span::operator=(const Span& obj)
+{
+	_N = obj.getSize();
+	_vec = obj.getVector();
+	_isSorted = obj.getIsSorted();
+	return (*this);
+}
 
 void    Span::addNumber(const int n)
 {
@@ -36,17 +39,24 @@ void    Span::addNumber(const int n)
         throw (std::overflow_error("Vector Already Full"));
 }
 
+void    Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+	while (begin != end) {
+		addNumber(*(begin++)); 
+	}
+}
+
 int     Span::shortestSpan()
 {
+    if (_vec.size() < 2)
+        throw (std::runtime_error("Too Few Elements"));
+
     if (!_isSorted) {
         sort(_vec.begin(), _vec.end());
         _isSorted = true;
     }
 
-    if (_vec.size() < 2)
-        throw (std::logic_error("Too Few Elements"));
     int span = INT_MAX;
-    for (std::size_t i = 0; i + 1< _vec.size(); i++) {
+    for (unsigned int i = 0; i + 1< _vec.size(); i++) {
         if ((_vec[i + 1] - _vec[i]) < span) {
             span = _vec[i + 1] - _vec[i];
         }
@@ -56,19 +66,30 @@ int     Span::shortestSpan()
 
 int     Span::longestSpan()
 {
+    if (_vec.size() < 2)
+        throw (std::runtime_error("Too Few Elements"));
+
     if (!_isSorted) {
         sort(_vec.begin(), _vec.end());
         _isSorted = true;
     }
 
-    if (_vec.size() < 2)
-        throw (std::logic_error("Too Few Elements"));
     return (_vec.back() - _vec.front());
+}
+
+unsigned int		Span::getSize() const {
+	return (_N);
+}
+std::vector<int>	Span::getVector() const {
+	return (_vec);	
+}
+bool				Span::getIsSorted() const {
+	return (_isSorted);
 }
 
 void    Span::printVector(void) const
 {
-    for (unsigned long i = 0; i < _vec.size(); i++)
+    for (unsigned int i = 0; i < _vec.size(); i++)
         std::cout << _vec[i] << " ";
     std::cout << std::endl;
 }

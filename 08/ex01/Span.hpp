@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 06:46:47 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/08 19:40:56 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/09 03:04:49 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,25 @@
 class Span
 {
 private:
-    unsigned int        _N;
-    std::vector<int>    _vec;
-    bool                _isSorted;
-
-    Span(void);
+    unsigned int			_N;
+    std::vector<int>		_vec;
+    bool					_isSorted;
 
 public:
-    Span(unsigned int N);
+    Span(void);
+    Span(const unsigned int N);
     Span(const Span& obj);
     ~Span(void);
     Span& operator=(const Span& obj);
     
     void    addNumber(const int n);
-    template <typename Iter>
-    void    addNumber(Iter begin, Iter end) {
-        while (begin != end) {
-            addNumber(*(begin++));
-        }
-    }
+    void    addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
     int     shortestSpan();
     int     longestSpan();
+	
+	unsigned int		getSize() const;
+	std::vector<int>	getVector() const;
+	bool				getIsSorted() const;
 
     void    printVector(void) const;
 };
