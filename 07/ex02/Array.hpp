@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 23:36:33 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 11:06:13 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/08 13:21:39 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 	Array(const Array& obj) : _arr(NULL), _size(obj.size()) {
 		if (_size)
 			_arr = new T[_size];
-		for (unsigned int i = 0 ; i < _size ; ++i)
+		for (unsigned int i = 0; i < _size; ++i)
 			_arr[i] = obj[i];
 	}
 	
@@ -42,26 +42,20 @@ public:
 		if (_size)
 			delete[] _arr;
 	}
-	
-	Array& operator=(const Array& other) {
-		Array temp(other);
-		this->swap(temp);
-		return *this;
-	}
 
-	// Array& operator=(const Array& obj) {
-	// 	if (this != &obj) {
-	// 		if (_size)
-	// 			delete[] _arr;
-	// 		_size = obj.size();
-	// 		if (_size) 
-	// 			_arr = new T[_size];
-	// 		for (unsigned int i = 0; i < _size; i++) {
-	// 			_arr[i] = obj[i];
-	// 		}
-	// 	}
-	// 	return (*this);
-	// }
+	Array& operator=(const Array& obj) {
+		if (this != &obj) {
+			if (_size)
+				delete[] _arr;
+			_size = obj.size();
+			if (_size) 
+				_arr = new T[_size];
+			for (unsigned int i = 0; i < _size; i++) {
+				_arr[i] = obj[i];
+			}
+		}
+		return (*this);
+	}
 
 	T&	operator[](const unsigned int idx) {
 		if (idx >= _size)
@@ -79,29 +73,9 @@ public:
 		return (_size);
 	}
 
-	// class InvalidIndexException : public std::exception {
-	// public:
-	// 	const char* what(void) const throw() {
-	// 		return ("Exception: Invalid Index");
-	// 	}
-	// };
-	
-	void swap(Array& other) {
-		T* temp_arr = other._arr;
-		other._arr = this->_arr;
-		this->_arr = temp_arr;
-		
-		unsigned int temp_size = other._size;
-		other._size = this->_size;
-		this->_size = temp_size;
-
-		// std::swap(this->_arr, temp._arr);
-		// std::swap(this->_size, temp._size);
-	}
-
-	void	printArray(void) {
+	void	printArray(void) const {
 		for (unsigned int i = 0; i < _size; i++)
-			std::cout << _arr[i] << std::endl;
+			std::cout << _arr[i] << " ";
 	}
 };
 

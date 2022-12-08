@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 23:36:35 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 10:58:54 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/08 13:30:24 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,34 +20,31 @@ int	main(void)
 		for (int i = 0; i < 10; i++) {
 			arr[i] = 'a' + i;
 		}
-		arr.printArray();
+		arr.printArray(); std::cout << std::endl;
 		
-		std::cout << std::endl;
-		
-		Array<char> copy(5);
-		copy = arr;
+		Array<char> copy(arr);
 		copy[0] = 'z';
 
-		arr.printArray();
-		std::cout << std::endl;
-		copy.printArray();
-
-		std::cout << std::endl;
+		arr.printArray(); std::cout << std::endl;
+		copy.printArray(); std::cout << std::endl;
 
 		const Array<int> constArr(5);
+		for (int i  = 0; i < 5; i++) {
+			constArr[i] = i;
+		}
+		constArr.printArray(); std::cout << std::endl;
 		
-
-		std::cout << arr[-1] << std::endl;
+		std::cout << constArr[6] << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-
 }
 
 // #define MAX_VAL 750
 // int main(int, char**)
+
 // {
 //     Array<int> numbers(MAX_VAL);
 //     int* mirror = new int[MAX_VAL];
@@ -94,5 +91,5 @@ int	main(void)
 //         numbers[i] = rand();
 //     }
 //     delete [] mirror;//
-//     return 0;
+// 	return 0;
 // }
