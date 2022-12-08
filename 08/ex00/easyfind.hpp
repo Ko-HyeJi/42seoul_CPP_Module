@@ -6,16 +6,13 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:35:41 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 06:43:48 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/08 19:28:35 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
-#include <vector>
-#include <deque>
-#include <list>
 #include <algorithm>
 #include <iostream>
 

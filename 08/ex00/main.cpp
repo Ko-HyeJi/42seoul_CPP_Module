@@ -6,11 +6,15 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:35:39 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/07 06:43:22 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/08 19:31:08 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
+#include <vector>
+#include <deque>
+#include <list>
+
 
 int main(void)
 {
@@ -27,7 +31,7 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
+
 	try
 	{
 		std::list<int> l;
@@ -41,7 +45,7 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
+		
 	try
 	{
 		std::deque<int> d;
@@ -55,5 +59,4 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
 }
