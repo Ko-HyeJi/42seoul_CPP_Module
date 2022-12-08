@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+         #
+#    By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 14:46:39 by hyko              #+#    #+#              #
-#    Updated: 2022/12/05 15:16:35 by hyko             ###   ########.fr        #
+#    Updated: 2022/12/08 12:39:08 by hyko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,6 @@ clean :
 
 fclean : clean
 	$(RM) $(NAME)
-	$(RM) *_shrubbery
 
 re : fclean all
 
