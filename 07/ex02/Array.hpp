@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 23:36:33 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/08 13:21:39 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/08 16:47:49 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,35 +24,31 @@ private:
 	unsigned int	_size;
 
 public:
-	Array(void) : _arr(NULL), _size(0) {}
-	
-	Array(unsigned int n) : _arr(NULL), _size(n) {
-		if (_size)
-			_arr = new T[_size];
+	Array(void) : _size(0) {
+		_arr = new T[_size];
 	}
 	
-	Array(const Array& obj) : _arr(NULL), _size(obj.size()) {
-		if (_size)
-			_arr = new T[_size];
+	Array(unsigned int n) : _arr(NULL), _size(n) {
+		_arr = new T[_size];
+	}
+	
+	Array(const Array& obj) : _size(obj.size()) {
+		_arr = new T[_size];
 		for (unsigned int i = 0; i < _size; ++i)
 			_arr[i] = obj[i];
 	}
 	
 	~Array(void) {
-		if (_size)
-			delete[] _arr;
+		delete[] _arr;
 	}
 
 	Array& operator=(const Array& obj) {
 		if (this != &obj) {
-			if (_size)
-				delete[] _arr;
+			delete[] _arr;
 			_size = obj.size();
-			if (_size) 
-				_arr = new T[_size];
-			for (unsigned int i = 0; i < _size; i++) {
+			_arr = new T[_size];
+			for (unsigned int i = 0; i < _size; i++)
 				_arr[i] = obj[i];
-			}
 		}
 		return (*this);
 	}
@@ -63,7 +59,7 @@ public:
 		return _arr[idx];
 	}
 	
-	T& operator[](const unsigned int idx) const {
+	const T& operator[](const unsigned int idx) const {
 		if (idx >= _size)
 			throw (std::out_of_range("Index Out of range"));
 		return _arr[idx];

@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 23:36:35 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/08 13:30:24 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/08 16:47:26 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,10 @@ int	main(void)
 		arr.printArray(); std::cout << std::endl;
 		copy.printArray(); std::cout << std::endl;
 
-		const Array<int> constArr(5);
-		for (int i  = 0; i < 5; i++) {
-			constArr[i] = i;
-		}
+		const Array<char> constArr(arr);
 		constArr.printArray(); std::cout << std::endl;
 		
-		std::cout << constArr[6] << std::endl;
+		std::cout << constArr[10] << std::endl;
 	}
 	catch(const std::exception& e)
 	{
