@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 14:57:09 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/09 03:33:55 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/09 12:27:53 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,33 +20,32 @@ template <typename T>
 class MutantStack: public std::stack<T>
 {
 public:
-	// typedef typename std::stack<T>::container_type  container_type;
-    // typedef typename container_type::value_type              value_type;
-    // typedef typename container_type::size_type               size_type;
-    // typedef typename container_type::reference               reference;
-    // typedef typename container_type::const_reference         const_reference;
+	typedef std::stack<T>													parent_type;
+    typedef typename parent_type::container_type::iterator					iterator;
+    typedef typename parent_type::container_type::reverse_iterator			reverse_iterator;
+    typedef typename parent_type::container_type::const_iterator			const_iterator;
+    typedef typename parent_type::container_type::const_reverse_iterator	const_reverse_iterator;
 
-    typedef typename std::stack<T>::container_type::iterator				iterator;
-    typedef typename std::stack<T>::container_type::reverse_iterator		reverse_iterator;
-    typedef typename std::stack<T>::container_type::const_iterator			const_iterator;
-    typedef typename std::stack<T>::container_type::const_reverse_iterator	const_reverse_iterator;
+    MutantStack() : parent_type() {
+		std::cout << "default constructor called" << std::endl;
+	}
+	
+    MutantStack(const MutantStack& other) : parent_type(other) {
+		std::cout << "copy constructor called" << std::endl;
+        // *this = other;
+		// this->c = other.c;
+    }
 
-    // MutantStack(): std::stack<T>() {}
+	MutantStack& operator=(const MutantStack& other) {
+		// if (this != &other)
+		// 	*this = other;
+		// 	// this->c = other.c;
+		// return (*this);
+		this->parent_type::operator=(other);
+		return *this;
+    }
 	
-    // // MutantStack(const MutantStack& other): std::stack<T>() {
-    // //     this->c = other.c;
-    // // }
-    // MutantStack(const MutantStack& other): std::stack<T>(other.c) {}
-    // // MutantStack(const MutantStack& other): std::stack<T>(other) {}
-    
-	// MutantStack& operator=(const MutantStack& other) {
-    //     // this->c = other.c;
-	// 	if (this != &other)
-	// 		std::stack<T>::operator=(other);
-	// 	return (*this);
-    // }
-	
-    // ~MutantStack() {};
+    ~MutantStack() {}
 
     iterator begin() {
 		// std::cout << "begin() called" << std::endl;

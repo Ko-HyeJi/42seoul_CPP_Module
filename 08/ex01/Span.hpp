@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 06:46:47 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/09 03:04:49 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/09 12:06:47 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SPAN_HPP
 
 #include <iostream>
+#include <limits>
 #include <exception>
 #include <vector>
 #include <algorithm>
@@ -24,16 +25,18 @@ private:
     unsigned int			_N;
     std::vector<int>		_vec;
     bool					_isSorted;
+    Span(void);
 
 public:
-    Span(void);
     Span(const unsigned int N);
     Span(const Span& obj);
     ~Span(void);
     Span& operator=(const Span& obj);
     
     void    addNumber(const int n);
-    void    addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+    // void    addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+	template <typename Iter>
+    void    addNumber(Iter begin, Iter end);
     int     shortestSpan();
     int     longestSpan();
 	
@@ -43,5 +46,18 @@ public:
 
     void    printVector(void) const;
 };
+
+template <typename Iter>
+void    Span::addNumber(Iter begin, Iter end)
+{
+	while (begin != end) {
+		if (_vec.size() < _N) {
+			_vec.push_back(*(begin++));
+			_isSorted = false;
+		}
+		else
+			throw (std::overflow_error("Vector Already Full"));
+	}
+}
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 14:57:10 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/09 00:31:01 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/09 11:37:08 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int main(void)
     for (MutantStack<int>::const_iterator iter = cs.begin(); iter != cs.end(); iter++) {
         std::cout << *iter << std::endl;
     }
-
     
     return (0);
 }

@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+         #
+#    By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/07 14:57:11 by hyko              #+#    #+#              #
-#    Updated: 2022/12/08 22:40:07 by hyko             ###   ########.fr        #
+#    Updated: 2022/12/09 12:16:25 by hyko             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = mutantstack
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 RM = rm -rf
 
 SRCS = main.cpp
