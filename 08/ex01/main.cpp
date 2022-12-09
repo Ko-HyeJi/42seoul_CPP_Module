@@ -47,27 +47,19 @@ int main()
     {
 		std::cout << "<test2 : using iterator>\n" << std::endl;
         std::vector<int> vec;
-		unsigned int size = 1000;
-        for (unsigned int i = 0; i < 100; i++) {
+		unsigned int size = 100;
+        Span sp(size);
+
+        for (unsigned int i = 0; i < 10; i++) {
             vec.push_back(i);
         }
-
-        Span sp(size);
         sp.addNumber(vec.begin(), vec.end());
-
-		sp.printVector();
 
 		std::list<int> lst;
 		for (int i = 0; i < 42; i++) {
 			lst.push_back(i);
 		}
 		sp.addNumber(lst.begin(), lst.end());
-
-		sp.printVector();
-
-		std::stringstream ss("0 1 2 3 42");
-		std::istream_iterator<int> begin(ss), end;
-		sp.addNumber(begin, end);
 
 		sp.printVector();
 
@@ -113,19 +105,23 @@ int main()
         sp.addNumber(199);
         sp.addNumber(299);
         sp.addNumber(500);
+        std::cout << "sp: ";
 		sp.printVector();
 
 		Span sp2(sp);
 		sp2.addNumber(0);
+        std::cout << "sp2: ";
 		sp2.printVector();
 		Span sp3(100);
 		sp3 = sp;
 		sp3.addNumber(1000);
+        std::cout << "sp3: ";
 		sp3.printVector();
+        std::cout << "sp: ";
 		sp.printVector();
 
-        std::cout << "sp longestSpan: " << sp.longestSpan() << std::endl;
         std::cout << "sp shortestSpan: " << sp.shortestSpan() << std::endl;
+        std::cout << "sp longestSpan: " << sp.longestSpan() << std::endl;
         std::cout << "sp2 shortestSpan: " << sp2.shortestSpan() << std::endl;
         std::cout << "sp2 longestSpan: " << sp2.longestSpan() << std::endl;
         std::cout << "sp3 shortestSpan: " << sp3.shortestSpan() << std::endl;
