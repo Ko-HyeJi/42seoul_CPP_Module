@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 23:36:33 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/08 16:47:49 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/09 10:50:32 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,25 @@ public:
 		_arr = new T[_size];
 	}
 	
-	Array(unsigned int n) : _arr(NULL), _size(n) {
+	Array(unsigned int n) : _size(n) {
 		_arr = new T[_size];
 	}
 	
 	Array(const Array& obj) : _size(obj.size()) {
 		_arr = new T[_size];
-		for (unsigned int i = 0; i < _size; ++i)
+		for (unsigned int i = 0; i < _size; i++)
 			_arr[i] = obj[i];
 	}
 	
 	~Array(void) {
 		delete[] _arr;
+		_arr = NULL;
 	}
 
 	Array& operator=(const Array& obj) {
 		if (this != &obj) {
 			delete[] _arr;
+			_arr = NULL;
 			_size = obj.size();
 			_arr = new T[_size];
 			for (unsigned int i = 0; i < _size; i++)
