@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 14:57:09 by hyko              #+#    #+#             */
-/*   Updated: 2022/12/09 12:27:53 by hyko             ###   ########.fr       */
+/*   Updated: 2022/12/09 16:01:05 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,33 +26,21 @@ public:
     typedef typename parent_type::container_type::const_iterator			const_iterator;
     typedef typename parent_type::container_type::const_reverse_iterator	const_reverse_iterator;
 
-    MutantStack() : parent_type() {
-		std::cout << "default constructor called" << std::endl;
-	}
+    MutantStack() : parent_type() {}
 	
-    MutantStack(const MutantStack& other) : parent_type(other) {
-		std::cout << "copy constructor called" << std::endl;
-        // *this = other;
-		// this->c = other.c;
-    }
+    MutantStack(const MutantStack& other) : parent_type(other) {}
 
 	MutantStack& operator=(const MutantStack& other) {
-		// if (this != &other)
-		// 	*this = other;
-		// 	// this->c = other.c;
-		// return (*this);
 		this->parent_type::operator=(other);
-		return *this;
+		return (*this);
     }
 	
     ~MutantStack() {}
 
     iterator begin() {
-		// std::cout << "begin() called" << std::endl;
         return (this->c.begin());
     }
     const_iterator begin() const {
-		// std::cout << "const begin() called" << std::endl;
         return (this->c.begin());
     }
 
