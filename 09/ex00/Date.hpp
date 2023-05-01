@@ -6,7 +6,7 @@
 /*   By: kohyeji <kohyeji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:42:41 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/05/01 17:57:09 by kohyeji          ###   ########.fr       */
+/*   Updated: 2023/05/01 19:49:58 by kohyeji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 class Date
 {
 private:
-    int* date;
+    std::string date;
+    int* date_arr;
     
 public:
     Date(const std::string& date);
@@ -27,43 +28,37 @@ public:
     //대소비교 연산자 오버로딩
 };
 
-Date::Date(const std::string& str)
+Date::Date(const std::string& date): date(date)
 {
-    date = new int[3];
-
-    std::string date_str[3];
+    date_arr = new int[3];
     
-    if (str.length() != 11) {
+    if (date.length() != 11) {
         for(int i = 0; i < 3; i++) {
-            date[i] = 0;
+            date_arr[i] = 0;
         }   
         // throw("error msg");
     }
     else {
-        date_str[0] = str.substr(0, 4);
-        date_str[1] = str.substr(5, 2);
-        date_str[2] = str.substr(8, 2);
-
-        date[0] = atoi(date_str[0].c_str());
-        date[1] = atoi(date_str[1].c_str());
-        date[2] = atoi(date_str[2].c_str());
+        date_arr[0] = atoi(date.substr(0, 4).c_str());
+        date_arr[1] = atoi(date.substr(5, 2).c_str());
+        date_arr[2] = atoi(date.substr(8, 2).c_str());
     }
 }
 
 Date::~Date()
 {
-    delete date;
+    delete date_arr;
 }
 
 int* Date::getDate() {
-    return date;
+    return date_arr;
 }
 
 bool Date::isValidDate()
 {
-    int year = date[0];
-    int month = date[1];
-    int day = date[2];
+    int year = date_arr[0];
+    int month = date_arr[1];
+    int day = date_arr[2];
 
     if (year < 2009 || year > 9999) 
         return false;
