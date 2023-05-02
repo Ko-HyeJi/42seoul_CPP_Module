@@ -6,11 +6,13 @@
 /*   By: kohyeji <kohyeji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:42:41 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/05/01 23:02:37 by kohyeji          ###   ########.fr       */
+/*   Updated: 2023/05/02 10:28:01 by kohyeji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "BitcoinExchange.hpp"
+#ifndef DATE_HPP
+#define DATE_HPP
+
 #include <iostream>
 
 class Date
@@ -25,8 +27,7 @@ public:
 
     std::string& getDate();
 
-    bool isValidDate(); //유효한 날짜인지 확인
-    //대소비교 연산자 오버로딩
+    bool isValidDate();
 };
 
 Date::Date(const std::string& date): date(date)
@@ -46,8 +47,7 @@ Date::Date(const std::string& date): date(date)
     }
 }
 
-Date::~Date()
-{
+Date::~Date() {
     delete date_arr;
 }
 
@@ -88,3 +88,5 @@ bool Date::isValidDate()
 
     return true;
 }
+
+#endif
