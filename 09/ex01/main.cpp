@@ -6,7 +6,7 @@
 /*   By: kohyeji <kohyeji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 05:31:21 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/05/06 06:39:47 by kohyeji          ###   ########.fr       */
+/*   Updated: 2023/05/07 16:40:35 by kohyeji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int main(int argc, char** argv) {
         if (argc != 2) {
             throw ("Error: Invalid Argument");
         }
-        RPN rpn(argv[1]);
+        RPN rpn;
+        std::cout << rpn.calculate(argv[1]) << std::endl;
     }
     catch(const char* err) {
         std::cout << err << std::endl;

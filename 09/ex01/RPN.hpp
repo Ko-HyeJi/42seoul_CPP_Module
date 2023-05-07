@@ -6,7 +6,7 @@
 /*   By: kohyeji <kohyeji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 05:31:29 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/05/06 06:39:38 by kohyeji          ###   ########.fr       */
+/*   Updated: 2023/05/07 16:38:42 by kohyeji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,12 @@ class RPN
 private:
     std::stack<int> stack;
     
-    // RPN();
-    
 public:
-    RPN(const char* str);
-    // ~RPN();
+    RPN();
+    int calculate(const char* str);
+    ~RPN();
 
     
 };
-
-
-
-// RPN::~RPN() {
-
-// }
-
 
 #endif

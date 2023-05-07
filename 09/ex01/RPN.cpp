@@ -6,13 +6,17 @@
 /*   By: kohyeji <kohyeji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 05:31:22 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/05/06 06:36:40 by kohyeji          ###   ########.fr       */
+/*   Updated: 2023/05/07 16:41:07 by kohyeji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-RPN::RPN(const char* str) {
+RPN::RPN() {}
+
+RPN::~RPN() {}
+
+int RPN::calculate(const char* str) {
     for(int i = 0; str[i]; i++) {
         if (isdigit(str[i]) && str[i + 1] == ' ') {
             stack.push(atoi(&str[i]));
@@ -53,6 +57,6 @@ RPN::RPN(const char* str) {
     if (stack.size() != 1) {
         throw("ERROR");
     } else {
-        std::cout << stack.top() << std::endl;
-    }
+        return stack.top();
+    }    
 }
