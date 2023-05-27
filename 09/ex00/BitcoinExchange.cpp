@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kohyeji <kohyeji@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 22:25:34 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/05/02 11:21:33 by kohyeji          ###   ########.fr       */
+/*   Updated: 2023/05/27 18:12:54 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,17 @@ BitcoinExchange::BitcoinExchange(const std::string& dataFile) {
     input_file.close();
 }
 
-BitcoinExchange::~BitcoinExchange() {
+BitcoinExchange::~BitcoinExchange(void) {}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& obj): priceData(obj.getPriceData()) {}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& obj) {
+    priceData = obj.getPriceData();
+    return *this;
+}
+
+std::map<std::string, double> BitcoinExchange::getPriceData(void) const {
+    return priceData;
 }
 
 void BitcoinExchange::calculatePrice(const std::string& input) {

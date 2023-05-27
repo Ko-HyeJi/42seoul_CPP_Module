@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kohyeji <kohyeji@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 22:47:53 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/05/02 11:16:45 by kohyeji          ###   ########.fr       */
+/*   Updated: 2023/05/27 18:13:00 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@ class BitcoinExchange
 {
 private:    
     std::map<std::string, double> priceData;
-    BitcoinExchange();
+    BitcoinExchange(void);
 
 public:
     BitcoinExchange(const std::string& dataFile);
-    ~BitcoinExchange();
-    //복사생성자
-    //대입연산자오버로딩
+    ~BitcoinExchange(void);
+    BitcoinExchange(const BitcoinExchange& obj);
+    BitcoinExchange& operator=(const BitcoinExchange& obj);
+
+    std::map<std::string, double> getPriceData(void) const;
 
     void calculatePrice(const std::string& input);
     void isValidDate(const std::string& date, bool isData);
