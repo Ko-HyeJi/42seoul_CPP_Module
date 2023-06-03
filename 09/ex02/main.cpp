@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:12 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/03 20:32:13 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/04 00:36:16 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int main(int argc, char** argv) {
         if (argc < 2) {
             throw (WRONG_ARG_ERR);
         }
-        PmergeMe pmergeme(--argc, argv + 1);
+        PmergeMe pmergeme(--argc, ++argv);
         pmergeme.printUnsortedSequence();
         pmergeme.printSortedSequence();
         pmergeme.sortByVector();
-        // pmergeme.sortByDeque();
+        pmergeme.sortByDeque();
     }
     catch (const std::string err) {
 		std::cout << RED << err << DEFAULT << std::endl;

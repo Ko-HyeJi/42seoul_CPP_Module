@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:16 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/03 20:39:49 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/04 00:57:45 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,14 @@
 
 PmergeMe::PmergeMe(int size, char** sequence): _size(size) {
     std::cout << BLUE << "called constructor" << DEFAULT << std::endl;
-    validateSequence(sequence);
-    _sequence = new int(_size);
-    saveSequence(sequence);
+    validateAndSaveSequence(sequence);
 }
 
 PmergeMe::~PmergeMe() {
     std::cout << BLUE << "called destructor" << DEFAULT << std::endl;
-    delete _sequence;
-    _sequence = 0;
 }
 
-void PmergeMe::validateSequence(char** sequence) {
-    //숫자인가?
-    //양수인가?
-    //숫자 범위는 int max 까지만?
-    //중복 검사 -> 중복 가능? 불가능? -> 일단 생략(중복 가능!)
+void PmergeMe::validateAndSaveSequence(char** sequence) {
     for (int i = 0; i < _size; i++) {
         for (int j = 0; sequence[i][j]; j++) {
             if (j == 0 && sequence[i][j] == '+') {
@@ -42,17 +34,16 @@ void PmergeMe::validateSequence(char** sequence) {
                 throw (std::string("Error: Too Large Num"));    
             }
         }
-        
+
+        if (sequence[i][0] == 0) {
+            throw (std::string("Error - 1"));
+        }
+            
         int num = atoi(sequence[i]);
         if (num < 0) {
             throw (std::string("Error: Too Large Num"));
         }
-    }
-}
-
-void PmergeMe::saveSequence(char** sequence) {
-    for (int i = 0; i < _size; i++) {
-        _sequence[i] = atoi(sequence[i]);
+        _sequence.push_back(num);
     }
 }
 
@@ -64,10 +55,10 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& obj) {
     return *this;
 }
 
-int* PmergeMe::getSequence() const {
-    int* copySequence = new int(_size);
+std::vector<int> PmergeMe::getSequence() const {
+    std::vector<int> copySequence;
     for (int i = 0; i < _size; i++) {
-        copySequence[i] = _sequence[i];
+        copySequence.push_back(_sequence[i]);
     }
     return copySequence;
 }
@@ -96,14 +87,8 @@ void PmergeMe::printSortedSequence() const {
     std::cout << std::endl;
 }
 
-void PmergeMe::sortByVector() {
-    std::vector<int> vecSequence;
-    for (int i = 0; i < _size; i++) {
-        std::cout << _sequence[i];
-        vecSequence.push_back(_sequence[i]);
-        // vecSequence[i] = _sequence[i];
-        std::cout << std::endl;
-    }
+void PmergeMe::sortByVector() const {
+    std::vector<int> vecSequence = _sequence;
     
     // std::vector<int>::iterator iter;
     // for(iter = vecSequence.begin(); iter!= vecSequence.end(); iter++)
@@ -111,11 +96,20 @@ void PmergeMe::sortByVector() {
     //     std::cout << *iter << " ";
     // }
     // std::cout << std::endl;
-}
+} 
 
 void PmergeMe::sortByDeque() const {
-    std::deque<int> deqSequence;   
-    for (int i = 0; i < _size; i++) {
-        deqSequence.push_back(_sequence[i]);
-    }   
+    std::deque<int> deqSequence;
+    std::vector<const int>::iterator iter;
+    for(iter = _sequence.begin(); iter != _sequence.end(); iter++)
+    {   
+        deqSequence.push_back(*iter);
+    }
+
+    // std::deque<int>::iterator iter2;
+    // for(iter2 = deqSequence.begin(); iter2!= deqSequence.end(); iter2++)
+    // {
+    //     std::cout << *iter2 << " ";
+    // }
+    // std::cout << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:20 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/03 20:34:45 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/04 00:57:55 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 class PmergeMe
 {
 private:
-    int* _sequence;
+    std::vector<int> _sequence;
     int _size;
     PmergeMe(void);
 
@@ -32,16 +32,15 @@ public:
     PmergeMe(const PmergeMe& obj);
     PmergeMe& operator=(const PmergeMe& obj);
 
-    void validateSequence(char** sequence);
-    void saveSequence(char** sequence);
+    void validateAndSaveSequence(char** sequence);
 
-    int* getSequence() const;
+    std::vector<int> getSequence() const;
     int getSize() const;
 
     void printUnsortedSequence() const;
     void printSortedSequence() const;
     
-    void sortByVector();
+    void sortByVector() const;
     void sortByDeque() const;
 };
 
