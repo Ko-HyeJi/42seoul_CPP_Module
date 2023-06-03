@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:16 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/04 00:57:45 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/04 05:16:16 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void PmergeMe::validateAndSaveSequence(char** sequence) {
             if (j == 0 && sequence[i][j] == '+') {
                 continue;
             }
-            else if (sequence[i][j] < '0' || sequence[i][j] > '9') {
+            else if (sequence[i][j] < '1' || sequence[i][j] > '9') {
                 throw (std::string("Error: Invalid Value"));
             }
             else if (j > 9) {
@@ -88,14 +88,13 @@ void PmergeMe::printSortedSequence() const {
 }
 
 void PmergeMe::sortByVector() const {
-    std::vector<int> vecSequence = _sequence;
-    
-    // std::vector<int>::iterator iter;
-    // for(iter = vecSequence.begin(); iter!= vecSequence.end(); iter++)
-    // {
-    //     std::cout << *iter << " ";
-    // }
-    // std::cout << std::endl;
+    std::vector<int> vecSequence = _sequence;    
+    std::vector<int>::iterator iter;
+    for(iter = vecSequence.begin(); iter!= vecSequence.end(); iter++)
+    {
+        std::cout << *iter << " ";
+    }
+    std::cout << std::endl;
 } 
 
 void PmergeMe::sortByDeque() const {
@@ -113,3 +112,5 @@ void PmergeMe::sortByDeque() const {
     // }
     // std::cout << std::endl;
 }
+
+
