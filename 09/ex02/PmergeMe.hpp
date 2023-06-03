@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:20 by hyko              #+#    #+#             */
-/*   Updated: 2023/05/27 21:22:20 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/03 20:34:45 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ public:
     void printUnsortedSequence() const;
     void printSortedSequence() const;
     
-    void sortByVector() const;
+    void sortByVector();
     void sortByDeque() const;
 };
 

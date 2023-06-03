@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:16 by hyko              #+#    #+#             */
-/*   Updated: 2023/05/27 21:25:28 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/03 20:39:49 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& obj) {
 }
 
 int* PmergeMe::getSequence() const {
-    int copySequence[_size];
+    int* copySequence = new int(_size);
     for (int i = 0; i < _size; i++) {
         copySequence[i] = _sequence[i];
     }
@@ -96,20 +96,26 @@ void PmergeMe::printSortedSequence() const {
     std::cout << std::endl;
 }
 
-void PmergeMe::sortByVector() const {
+void PmergeMe::sortByVector() {
     std::vector<int> vecSequence;
     for (int i = 0; i < _size; i++) {
+        std::cout << _sequence[i];
         vecSequence.push_back(_sequence[i]);
+        // vecSequence[i] = _sequence[i];
+        std::cout << std::endl;
     }
-
     
+    // std::vector<int>::iterator iter;
+    // for(iter = vecSequence.begin(); iter!= vecSequence.end(); iter++)
+    // {
+    //     std::cout << *iter << " ";
+    // }
+    // std::cout << std::endl;
 }
 
 void PmergeMe::sortByDeque() const {
     std::deque<int> deqSequence;   
     for (int i = 0; i < _size; i++) {
         deqSequence.push_back(_sequence[i]);
-    }
-
-    
+    }   
 }
