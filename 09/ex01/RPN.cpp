@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 05:31:22 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/05/27 18:49:50 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/04 00:48:33 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ RPN::RPN(void) {}
 
 RPN::~RPN(void) {}
 
-//오버플로우 처리 해야하는가?
 int RPN::calculate(const char* str) {
     for(int i = 0; str[i]; i++) {
         if (isdigit(str[i]) && str[i + 1] == ' ') {
@@ -34,6 +33,8 @@ int RPN::calculate(const char* str) {
                 switch (str[i])
                 {
                 case '+':
+                    if (l + r < 0)
+                        throw ("ERROR")
                     stack.push(l + r);
                     break;
                 case '-':
@@ -48,6 +49,8 @@ int RPN::calculate(const char* str) {
                     }
                     break;
                 case '*':
+                    if (l * r < 0)
+                        throw ("ERROR")
                     stack.push(l * r);
                     break;
                 }
