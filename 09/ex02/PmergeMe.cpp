@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kohyeji <kohyeji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:16 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/04 05:16:16 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/04 15:07:41 by kohyeji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,30 +87,114 @@ void PmergeMe::printSortedSequence() const {
     std::cout << std::endl;
 }
 
-void PmergeMe::sortByVector() const {
+void PmergeMe::sortByVector() {
     std::vector<int> vecSequence = _sequence;    
-    std::vector<int>::iterator iter;
-    for(iter = vecSequence.begin(); iter!= vecSequence.end(); iter++)
-    {
-        std::cout << *iter << " ";
+
+    if (vecSequence.size() % 2 == 1) {
+        vecSequence.push_back(0);
+    }
+
+    std::vector<std::pair<int, int> > pairs = createPairsVector(vecSequence);
+
+    std::vector<int> largeArr;
+    std::vector<int> smallArr;
+
+    std::vector<std::pair<int, int> >::iterator iter;
+    for (iter = pairs.begin(); iter != pairs.end(); iter++) {
+        if (iter->first >= iter->second) {
+            largeArr.push_back(iter->first);
+            smallArr.push_back(iter->second);
+        }
+        else {
+            largeArr.push_back(iter->second);
+            smallArr.push_back(iter->first);
+        }
+    }
+
+    mergeSort(largeArr, 0, largeArr.size() - 1);
+
+    std::vector<int>::iterator iter2;
+    for (iter2 = smallArr.begin(); iter2 != smallArr.end(); iter2++) {
+        binaryInsert(largeArr, *iter2);
+    }
+
+    if (largeArr[0] == 0) {
+        largeArr.erase(largeArr.begin());
+    }
+
+    //print sortedArr
+    std::cout << "vector : ";
+    std::vector<int>::iterator iter3;
+    for (iter3 = largeArr.begin(); iter3 != largeArr.end(); iter3++) {
+        std::cout << *iter3 << " ";
     }
     std::cout << std::endl;
 } 
 
-void PmergeMe::sortByDeque() const {
+void PmergeMe::sortByDeque() {
     std::deque<int> deqSequence;
-    std::vector<const int>::iterator iter;
-    for(iter = _sequence.begin(); iter != _sequence.end(); iter++)
+    
+    std::vector<const int>::iterator it;
+    for(it = _sequence.begin(); it != _sequence.end(); it++)
     {   
-        deqSequence.push_back(*iter);
+        deqSequence.push_back(*it);
     }
 
-    // std::deque<int>::iterator iter2;
-    // for(iter2 = deqSequence.begin(); iter2!= deqSequence.end(); iter2++)
-    // {
-    //     std::cout << *iter2 << " ";
-    // }
-    // std::cout << std::endl;
+        if (deqSequence.size() % 2 == 1) {
+        deqSequence.push_back(0);
+    }
+
+    std::deque<std::pair<int, int> > pairs = createPairsDeque(deqSequence);
+
+    std::deque<int> largeArr;
+    std::deque<int> smallArr;
+
+    std::deque<std::pair<int, int> >::iterator iter;
+    for (iter = pairs.begin(); iter != pairs.end(); iter++) {
+        if (iter->first >= iter->second) {
+            largeArr.push_back(iter->first);
+            smallArr.push_back(iter->second);
+        }
+        else {
+            largeArr.push_back(iter->second);
+            smallArr.push_back(iter->first);
+        }
+    }
+
+    mergeSort(largeArr, 0, largeArr.size() - 1);
+
+    std::deque<int>::iterator iter2;
+    for (iter2 = smallArr.begin(); iter2 != smallArr.end(); iter2++) {
+        binaryInsert(largeArr, *iter2);
+    }
+
+    if (largeArr[0] == 0) {
+        largeArr.erase(largeArr.begin());
+    }
+
+    //print sortedArr
+    std::cout << "deque : ";
+    std::deque<int>::iterator iter3;
+    for (iter3 = largeArr.begin(); iter3 != largeArr.end(); iter3++) {
+        std::cout << *iter3 << " ";
+    }
+    std::cout << std::endl;
 }
 
+std::vector<std::pair<int, int> > PmergeMe::createPairsVector(const std::vector<int>& nums) {
+    std::vector<std::pair<int, int> > pairs;
+    for (int i = 0; i < int(nums.size()); i += 2) {
+        std::pair<int, int> newPair(nums[i], nums[i + 1]);
+        pairs.push_back(newPair);
+    }
+    return pairs;
+}
 
+std::deque<std::pair<int, int> > PmergeMe::createPairsDeque(const std::deque<int>& nums) {
+    std::deque<std::pair<int, int> > pairs;
+    for (int i = 0; i < int(nums.size()); i += 2) {
+        std::pair<int, int> newPair(nums[i], nums[i + 1]);
+        pairs.push_back(newPair);
+    }
+    return pairs;
+}
