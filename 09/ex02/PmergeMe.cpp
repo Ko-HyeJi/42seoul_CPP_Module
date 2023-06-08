@@ -6,7 +6,7 @@
 /*   By: kohyeji <kohyeji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:16 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/04 15:07:41 by kohyeji          ###   ########.fr       */
+/*   Updated: 2023/06/09 02:32:15 by kohyeji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void PmergeMe::validateAndSaveSequence(char** sequence) {
             if (j == 0 && sequence[i][j] == '+') {
                 continue;
             }
-            else if (sequence[i][j] < '1' || sequence[i][j] > '9') {
+            else if (sequence[i][j] < '0' || sequence[i][j] > '9') {
                 throw (std::string("Error: Invalid Value"));
             }
             else if (j > 9) {
@@ -88,6 +88,8 @@ void PmergeMe::printSortedSequence() const {
 }
 
 void PmergeMe::sortByVector() {
+    clock_t start = clock();
+    
     std::vector<int> vecSequence = _sequence;    
 
     if (vecSequence.size() % 2 == 1) {
@@ -122,16 +124,24 @@ void PmergeMe::sortByVector() {
         largeArr.erase(largeArr.begin());
     }
 
-    //print sortedArr
-    std::cout << "vector : ";
-    std::vector<int>::iterator iter3;
-    for (iter3 = largeArr.begin(); iter3 != largeArr.end(); iter3++) {
-        std::cout << *iter3 << " ";
-    }
-    std::cout << std::endl;
+    // //print sortedArr
+    // std::cout << "vector : ";
+    // std::vector<int>::iterator iter3;
+    // for (iter3 = largeArr.begin(); iter3 != largeArr.end(); iter3++) {
+    //     std::cout << *iter3 << " ";
+    // }
+    // std::cout << std::endl;
+    
+    clock_t end = clock();
+
+    std::cout << std::fixed;
+    std::cout.precision(5);
+    std::cout << "Time to process a range of " << _size << " elements with std::vector : " << double(end - start) / CLOCKS_PER_SEC << " us" << std::endl;
 } 
 
 void PmergeMe::sortByDeque() {
+    clock_t start = clock();
+    
     std::deque<int> deqSequence;
     
     std::vector<const int>::iterator it;
@@ -172,13 +182,18 @@ void PmergeMe::sortByDeque() {
         largeArr.erase(largeArr.begin());
     }
 
-    //print sortedArr
-    std::cout << "deque : ";
-    std::deque<int>::iterator iter3;
-    for (iter3 = largeArr.begin(); iter3 != largeArr.end(); iter3++) {
-        std::cout << *iter3 << " ";
-    }
-    std::cout << std::endl;
+    // //print sortedArr
+    // std::cout << "deque : ";
+    // std::deque<int>::iterator iter3;
+    // for (iter3 = largeArr.begin(); iter3 != largeArr.end(); iter3++) {
+    //     std::cout << *iter3 << " ";
+    // }
+    // std::cout << std::endl;
+    
+    clock_t end = clock();
+    // std::cout << std::fixed;
+    // std::cout.precision(5);
+    std::cout << "Time to process a range of " << _size << " elements with std::deque : " << double(end - start) / CLOCKS_PER_SEC << " us" << std::endl;
 }
 
 std::vector<std::pair<int, int> > PmergeMe::createPairsVector(const std::vector<int>& nums) {
