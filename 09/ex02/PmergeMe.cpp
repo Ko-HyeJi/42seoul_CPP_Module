@@ -3,23 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kohyeji <kohyeji@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:16 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/09 02:32:15 by kohyeji          ###   ########.fr       */
+/*   Updated: 2023/06/10 13:34:28 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe(int size, char** sequence): _size(size) {
-    std::cout << BLUE << "called constructor" << DEFAULT << std::endl;
     validateAndSaveSequence(sequence);
 }
 
-PmergeMe::~PmergeMe() {
-    std::cout << BLUE << "called destructor" << DEFAULT << std::endl;
-}
+PmergeMe::~PmergeMe() {}
 
 void PmergeMe::validateAndSaveSequence(char** sequence) {
     for (int i = 0; i < _size; i++) {
@@ -36,7 +33,7 @@ void PmergeMe::validateAndSaveSequence(char** sequence) {
         }
 
         if (sequence[i][0] == 0) {
-            throw (std::string("Error - 1"));
+            throw (std::string("Error: Empty String"));
         }
             
         int num = atoi(sequence[i]);
@@ -123,20 +120,11 @@ void PmergeMe::sortByVector() {
     if (largeArr[0] == 0) {
         largeArr.erase(largeArr.begin());
     }
-
-    // //print sortedArr
-    // std::cout << "vector : ";
-    // std::vector<int>::iterator iter3;
-    // for (iter3 = largeArr.begin(); iter3 != largeArr.end(); iter3++) {
-    //     std::cout << *iter3 << " ";
-    // }
-    // std::cout << std::endl;
     
     clock_t end = clock();
-
-    std::cout << std::fixed;
-    std::cout.precision(5);
     std::cout << "Time to process a range of " << _size << " elements with std::vector : " << double(end - start) / CLOCKS_PER_SEC << " us" << std::endl;
+    
+    // printSortedArray(largeArr);
 } 
 
 void PmergeMe::sortByDeque() {
@@ -150,7 +138,7 @@ void PmergeMe::sortByDeque() {
         deqSequence.push_back(*it);
     }
 
-        if (deqSequence.size() % 2 == 1) {
+    if (deqSequence.size() % 2 == 1) {
         deqSequence.push_back(0);
     }
 
@@ -182,18 +170,10 @@ void PmergeMe::sortByDeque() {
         largeArr.erase(largeArr.begin());
     }
 
-    // //print sortedArr
-    // std::cout << "deque : ";
-    // std::deque<int>::iterator iter3;
-    // for (iter3 = largeArr.begin(); iter3 != largeArr.end(); iter3++) {
-    //     std::cout << *iter3 << " ";
-    // }
-    // std::cout << std::endl;
-    
     clock_t end = clock();
-    // std::cout << std::fixed;
-    // std::cout.precision(5);
     std::cout << "Time to process a range of " << _size << " elements with std::deque : " << double(end - start) / CLOCKS_PER_SEC << " us" << std::endl;
+    
+    // printSortedArray(largeArr);
 }
 
 std::vector<std::pair<int, int> > PmergeMe::createPairsVector(const std::vector<int>& nums) {

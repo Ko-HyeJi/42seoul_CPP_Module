@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kohyeji <kohyeji@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:20 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/09 02:01:06 by kohyeji          ###   ########.fr       */
+/*   Updated: 2023/06/10 13:33:37 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <deque>
 #include <time.h>
 #include "color.hpp"
-#include "error.hpp"
 
 class PmergeMe
 {
@@ -92,6 +91,15 @@ private:
         }
 
         sortedContainer.insert(low, element);
+    }
+
+    template <typename T>
+    void printSortedArray(T& sortedArray) {
+        typename T::iterator iter = sortedArray.begin();
+        for (iter = sortedArray.begin(); iter != sortedArray.end(); iter++) {
+            std::cout << *iter << " ";
+        }
+        std::cout << std::endl;        
     }
 
 public:
