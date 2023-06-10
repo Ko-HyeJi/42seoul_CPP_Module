@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 22:25:39 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/05/27 18:12:59 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/10 14:07:26 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int main(int argc, char** argv) {
                 std::cout << BLUE << err << DEFAULT << std::endl;
             }
         }
+        
         input_file.close();        
     }
     catch (const std::string err) {

@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 22:25:34 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/05/27 18:12:54 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/10 14:54:06 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,13 @@ void BitcoinExchange::calculatePrice(const std::string& input) {
     
     size_t pos = input.find('|');
     if (pos != std::string::npos) {
-        std::string date = input.substr(0, pos-1);
-        double value = std::stod(input.substr(pos+2));
+        if (input[pos-1] != ' ' || input[pos+1] != ' ') {
+            throw (BAD_INPUT_ERR + input);
+        }
         
+        std::string date = input.substr(0, pos-1);
+        double value = atof(input.substr(pos+2).c_str());
+
         isValidDate(date, false);
         isValidValue(value);        
 
