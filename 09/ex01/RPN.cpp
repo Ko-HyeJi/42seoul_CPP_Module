@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 05:31:22 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/06/04 00:48:33 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/10 13:58:49 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int RPN::calculate(const char* str) {
         } 
         else if (strchr("+-/*", str[i]) && (str[i + 1] == ' ' || str[i + 1] == '\0')) {
             if (stack.size() < 2) {
-                throw ("ERROR");
+                throw ("Error");
             } else {
                 int r = stack.top();
                 stack.pop();
@@ -34,7 +34,7 @@ int RPN::calculate(const char* str) {
                 {
                 case '+':
                     if (l + r < 0)
-                        throw ("ERROR")
+                        throw ("Error");
                     stack.push(l + r);
                     break;
                 case '-':
@@ -42,7 +42,7 @@ int RPN::calculate(const char* str) {
                     break;
                 case '/':
                     if (r == 0) {
-                        throw ("ERROR");
+                        throw ("Error");
                     }
                     else {
                         stack.push(l / r);
@@ -50,7 +50,7 @@ int RPN::calculate(const char* str) {
                     break;
                 case '*':
                     if (l * r < 0)
-                        throw ("ERROR")
+                        throw ("Error");
                     stack.push(l * r);
                     break;
                 }
@@ -60,11 +60,11 @@ int RPN::calculate(const char* str) {
             continue;
         } 
         else {
-            throw ("ERROR");
+            throw ("Error");
         }
     }
     if (stack.size() != 1) {
-        throw("ERROR");
+        throw ("Error");
     } else {
         return stack.top();
     }    

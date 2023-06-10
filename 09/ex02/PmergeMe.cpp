@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:16 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/10 13:34:28 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/10 13:58:27 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,20 @@ void PmergeMe::validateAndSaveSequence(char** sequence) {
                 continue;
             }
             else if (sequence[i][j] < '0' || sequence[i][j] > '9') {
-                throw (std::string("Error: Invalid Value"));
+                throw ("Error");
             }
             else if (j > 9) {
-                throw (std::string("Error: Too Large Num"));    
+                throw ("Error");
             }
         }
 
         if (sequence[i][0] == 0) {
-            throw (std::string("Error: Empty String"));
+            throw ("Error");
         }
             
         int num = atoi(sequence[i]);
         if (num < 0) {
-            throw (std::string("Error: Too Large Num"));
+            throw ("Error");
         }
         _sequence.push_back(num);
     }
