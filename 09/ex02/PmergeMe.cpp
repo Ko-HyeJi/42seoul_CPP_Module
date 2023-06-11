@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:16 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/10 13:58:27 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/11 22:12:58 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,19 +176,19 @@ void PmergeMe::sortByDeque() {
     // printSortedArray(largeArr);
 }
 
-std::vector<std::pair<int, int> > PmergeMe::createPairsVector(const std::vector<int>& nums) {
+std::vector<std::pair<int, int> > PmergeMe::createPairsVector(const std::vector<int>& array) {
     std::vector<std::pair<int, int> > pairs;
-    for (int i = 0; i < int(nums.size()); i += 2) {
-        std::pair<int, int> newPair(nums[i], nums[i + 1]);
+    for (int i = 0; i < int(array.size()); i += 2) {
+        std::pair<int, int> newPair(array[i], array[i + 1]);
         pairs.push_back(newPair);
     }
     return pairs;
 }
 
-std::deque<std::pair<int, int> > PmergeMe::createPairsDeque(const std::deque<int>& nums) {
+std::deque<std::pair<int, int> > PmergeMe::createPairsDeque(const std::deque<int>& array) {
     std::deque<std::pair<int, int> > pairs;
-    for (int i = 0; i < int(nums.size()); i += 2) {
-        std::pair<int, int> newPair(nums[i], nums[i + 1]);
+    for (int i = 0; i < int(array.size()); i += 2) {
+        std::pair<int, int> newPair(array[i], array[i + 1]);
         pairs.push_back(newPair);
     }
     return pairs;

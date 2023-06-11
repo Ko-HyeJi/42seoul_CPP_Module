@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:20 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/10 13:33:37 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/11 22:18:31 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,51 +27,51 @@ private:
     PmergeMe(void);
     void validateAndSaveSequence(char** sequence);
 
-    std::vector<std::pair<int, int> > createPairsVector(const std::vector<int>& nums);
-    std::deque<std::pair<int, int> > createPairsDeque(const std::deque<int>& nums);
+    std::vector<std::pair<int, int> > createPairsVector(const std::vector<int>& array);
+    std::deque<std::pair<int, int> > createPairsDeque(const std::deque<int>& array);
 
     template <typename T>
-    void merge(T& nums, int left, int mid, int right) {
+    void merge(T& array, int left, int mid, int right) {
         int i = left;
         int j = mid + 1;
         int k = left;
-        T temp(nums.size());
+        T temp(array.size());
 
         while (i <= mid && j <= right) {
-            if (nums[i] <= nums[j]) {
-                temp[k] = nums[i];
+            if (array[i] <= array[j]) {
+                temp[k] = array[i];
                 i++;
             } else {
-                temp[k] = nums[j];
+                temp[k] = array[j];
                 j++;
             }
             k++;
         }
 
         while (i <= mid) {
-            temp[k] = nums[i];
+            temp[k] = array[i];
             i++;
             k++;
         }
 
         while (j <= right) {
-            temp[k] = nums[j];
+            temp[k] = array[j];
             j++;
             k++;
         }
 
         for (int index = left; index <= right; index++) {
-            nums[index] = temp[index];
+            array[index] = temp[index];
         }
     }
 
     template <typename T>
-    void mergeSort(T& nums, int left, int right) {
+    void mergeSort(T& array, int left, int right) {
         if (left < right) {
             int mid = left + (right - left) / 2;
-            mergeSort(nums, left, mid);
-            mergeSort(nums, mid + 1, right);
-            merge(nums, left, mid, right);
+            mergeSort(array, left, mid);
+            mergeSort(array, mid + 1, right);
+            merge(array, left, mid, right);
         }
     }
 
