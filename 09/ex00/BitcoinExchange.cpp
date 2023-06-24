@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 22:25:34 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/06/25 05:33:42 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/25 05:40:51 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,24 @@ BitcoinExchange::BitcoinExchange(const std::string& dataFile) {
         throw (FILE_OPEN_ERR);
     }
 
-        getline(input_file, line);
-        
-        while (getline(input_file, line)){
+    getline(input_file, line);
+
+    while (getline(input_file, line)) {
         size_t pos = line.find(',');
 
         if (pos != std::string::npos) {
             std::string date = line.substr(0, pos);
-            double price = std::stod(line.substr(pos+1));
-            
+            double price = std::stod(line.substr(pos + 1));
+
             isValidDate(date, true);
             if (price < 0) {
                 throw (WRONG_DATA_ERR + line);
             }
 
-           _priceData.insert(std::make_pair(date, price));
+            _priceData.insert(std::make_pair(date, price));
         }
     }
+
     input_file.close();
 }
 
@@ -50,7 +51,7 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& obj) {
 }
 
 std::map<std::string, double> BitcoinExchange::getPriceData(void) const {
-    return_priceData;
+    return _priceData;
 }
 
 void BitcoinExchange::calculatePrice(const std::string& input) {
