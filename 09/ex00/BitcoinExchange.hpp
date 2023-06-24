@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 22:47:53 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/05/27 18:13:00 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/25 05:33:42 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 class BitcoinExchange
 {
 private:    
-    std::map<std::string, double> priceData;
+    std::map<std::string, double>_priceData;
     BitcoinExchange(void);
 
 public:

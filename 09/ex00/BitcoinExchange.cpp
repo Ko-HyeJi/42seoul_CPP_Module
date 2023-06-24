@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 22:25:34 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/06/10 14:54:06 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/25 05:33:42 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ BitcoinExchange::BitcoinExchange(const std::string& dataFile) {
                 throw (WRONG_DATA_ERR + line);
             }
 
-            priceData.insert(std::make_pair(date, price));
+           _priceData.insert(std::make_pair(date, price));
         }
     }
     input_file.close();
@@ -42,15 +42,15 @@ BitcoinExchange::BitcoinExchange(const std::string& dataFile) {
 
 BitcoinExchange::~BitcoinExchange(void) {}
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& obj): priceData(obj.getPriceData()) {}
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& obj):_priceData(obj.getPriceData()) {}
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& obj) {
-    priceData = obj.getPriceData();
+   _priceData = obj.getPriceData();
     return *this;
 }
 
 std::map<std::string, double> BitcoinExchange::getPriceData(void) const {
-    return priceData;
+    return_priceData;
 }
 
 void BitcoinExchange::calculatePrice(const std::string& input) {
@@ -70,7 +70,7 @@ void BitcoinExchange::calculatePrice(const std::string& input) {
         isValidDate(date, false);
         isValidValue(value);        
 
-        std::map<std::string, double>::iterator iter = priceData.lower_bound(date);
+        std::map<std::string, double>::iterator iter =_priceData.lower_bound(date);
         if (iter->first != date) {
             --iter;
         }
