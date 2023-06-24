@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:20 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/11 22:18:31 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/25 05:11:44 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ private:
 
         for (int index = left; index <= right; index++) {
             array[index] = temp[index];
-        }
+        }   
     }
 
     template <typename T>
@@ -76,13 +76,13 @@ private:
     }
 
     template <typename T>
-    void binaryInsert(T& sortedContainer, const typename T::value_type& element) {
-        typename T::iterator low = sortedContainer.begin();
-        typename T::iterator high = sortedContainer.end();
+    void binaryInsert(T& sortedArray, const typename T::value_type& element) {
+        typename T::iterator low = sortedArray.begin();
+        typename T::iterator high = sortedArray.end();
 
         while (low < high) {
             typename T::iterator mid = low + (high - low) / 2;
-
+            
             if (element < *mid) {
                 high = mid;
             } else {
@@ -90,7 +90,7 @@ private:
             }
         }
 
-        sortedContainer.insert(low, element);
+        sortedArray.insert(low, element);
     }
 
     template <typename T>
