@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 05:31:29 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/06/04 00:48:06 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/25 06:09:10 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class RPN
 {
 private:
-    std::stack<int> stack;
+    std::stack<int> _stack;
     RPN(const RPN& obj);
     RPN& operator=(const RPN& obj);
 
