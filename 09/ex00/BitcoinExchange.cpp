@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 22:25:34 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/06/25 05:48:46 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/25 06:01:49 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ BitcoinExchange::BitcoinExchange(const std::string& dataFile) {
 
         if (pos != std::string::npos) {
             std::string date = line.substr(0, pos);
-            double price = std::stod(line.substr(pos + 1));
+            double price = atof(line.substr(pos + 1).c_str());
 
             isValidDate(date, true);
             if (price < 0) {
