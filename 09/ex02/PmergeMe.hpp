@@ -112,7 +112,6 @@ public:
     int getSize() const;
 
     void printUnsortedSequence() const;
-    void printSortedSequence() const;
     
     void sortByVector();
     void sortByDeque();

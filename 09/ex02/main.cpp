@@ -22,7 +22,6 @@ int main(int argc, char** argv) {
         }
         PmergeMe pmergeme(--argc, ++argv);
         pmergeme.printUnsortedSequence();
-        pmergeme.printSortedSequence();
         pmergeme.sortByVector();
         pmergeme.sortByDeque();
     }

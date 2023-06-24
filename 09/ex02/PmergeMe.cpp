@@ -32,12 +32,12 @@ void PmergeMe::validateAndSaveSequence(char** sequence) {
             }
         }
 
-        if (sequence[i][0] == 0) {
-            throw ("Error");
-        }
+        // if (sequence[i][0] == 0) {
+        //     throw ("Error");
+        // }
             
         int num = atoi(sequence[i]);
-        if (num < 0) {
+        if (num < 1) {
             throw ("Error");
         }
         _sequence.push_back(num);
@@ -66,20 +66,6 @@ void PmergeMe::printUnsortedSequence() const {
     std::cout << "Before: ";
     for (int i = 0; i < _size; i++) {
         std::cout << _sequence[i] << " ";
-    }
-    std::cout << std::endl;
-}
-    
-void PmergeMe::printSortedSequence() const {
-    int sortedSequence[_size];
-    for (int i = 0; _sequence[i]; i++) {
-        sortedSequence[i] = _sequence[i];
-    }
-    std::sort(sortedSequence, sortedSequence + _size);
-    
-    std::cout << "After: ";
-    for (int i = 0; i < _size; i++) {
-        std::cout << sortedSequence[i] << " ";
     }
     std::cout << std::endl;
 }
@@ -122,9 +108,11 @@ void PmergeMe::sortByVector() {
     }
     
     clock_t end = clock();
+
+    std::cout << "After: ";
+    printSortedArray(largeArr);
+
     std::cout << "Time to process a range of " << _size << " elements with std::vector : " << double(end - start) / CLOCKS_PER_SEC << " us" << std::endl;
-    
-    // printSortedArray(largeArr);
 } 
 
 void PmergeMe::sortByDeque() {
