@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:16 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/25 05:14:31 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/25 05:20:57 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,9 @@ void PmergeMe::sortByVector() {
     printSortedArray(largeArr);
 
     std::cout << "Time to process a range of " << _size << " elements with std::vector : " << double(end - start) / CLOCKS_PER_SEC << " us" << std::endl;
+
+    // std::cout << "Vector: ";
+    // printSortedArray(largeArr);
 } 
 
 void PmergeMe::sortByDeque() {
@@ -156,7 +159,8 @@ void PmergeMe::sortByDeque() {
 
     clock_t end = clock();
     std::cout << "Time to process a range of " << _size << " elements with std::deque : " << double(end - start) / CLOCKS_PER_SEC << " us" << std::endl;
-    
+
+    // std::cout << "Deque: ";
     // printSortedArray(largeArr);
 }
 
