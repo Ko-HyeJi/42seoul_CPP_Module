@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 17:48:16 by hyko              #+#    #+#             */
-/*   Updated: 2023/06/11 22:12:58 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/25 05:14:31 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,6 @@ void PmergeMe::validateAndSaveSequence(char** sequence) {
             }
         }
 
-        // if (sequence[i][0] == 0) {
-        //     throw ("Error");
-        // }
-            
         int num = atoi(sequence[i]);
         if (num < 1) {
             throw ("Error");
