@@ -6,7 +6,7 @@
 /*   By: hyko <hyko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 22:25:34 by kohyeji           #+#    #+#             */
-/*   Updated: 2023/06/25 05:40:51 by hyko             ###   ########.fr       */
+/*   Updated: 2023/06/25 05:48:46 by hyko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ BitcoinExchange::~BitcoinExchange(void) {}
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& obj):_priceData(obj.getPriceData()) {}
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& obj) {
-   _priceData = obj.getPriceData();
+    _priceData = obj.getPriceData();
     return *this;
 }
 
@@ -69,9 +69,9 @@ void BitcoinExchange::calculatePrice(const std::string& input) {
         double value = atof(input.substr(pos+2).c_str());
 
         isValidDate(date, false);
-        isValidValue(value);        
+        isValidValue(value);
 
-        std::map<std::string, double>::iterator iter =_priceData.lower_bound(date);
+        std::map<std::string, double>::iterator iter = _priceData.lower_bound(date);
         if (iter->first != date) {
             --iter;
         }
